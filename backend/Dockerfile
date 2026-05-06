@@ -3,7 +3,7 @@ FROM public-cn-beijing.cr.volces.com/public/base:maven-3.6.0-jdk-8-slim as build
 WORKDIR /opt/application
 COPY backend/ /opt/application/
 
-RUN mvn -s /opt/application/settings.xml -f /opt/application/pom.xml clean package -DskipTests
+RUN mvn -s /opt/application/settings.xml -f /opt/application/pom.xml clean package -DskipTests -Dmaven.wagon.http.connectionTimeout=120000 -Dmaven.wagon.http.readTimeout=120000 -Dmaven.wagon.http.retryHandler.count=3
 
 FROM eclipse-temurin:8-jre-alpine
 WORKDIR /app
