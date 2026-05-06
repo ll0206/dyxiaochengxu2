@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "车尚友汽车科技",
+  "usingComponents": {
+    "float-btn": "/components/float-btn/float-btn"
+  }
+}

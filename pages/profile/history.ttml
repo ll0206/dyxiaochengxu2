@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="page-header">
+    <view class="header-row">
+      <view>
+        <text class="page-title">浏览历史</text>
+        <text class="page-desc">最近浏览过的案例</text>
+      </view>
+      <view class="clear-btn" bindtap="onClear" tt:if="{{history.length > 0}}">
+        <text>清除全部</text>
+      </view>
+    </view>
+  </view>
+
+  <view tt:if="{{history.length > 0}}">
+    <view class="hist-card" tt:for="{{history}}" tt:key="index">
+      <view class="hist-content" bindtap="onTapCase" data-index="{{item.index}}">
+        <view class="hist-image {{item.imageTheme}}">
+          <image class="hist-img" src="{{item.image}}" mode="aspectFill" binderror="onImageError" data-index="{{index}}"></image>
+          <view class="hist-img-fallback" tt:if="{{item.showFallback}}">
+            <text class="hist-img-label">{{item.carModel}}</text>
+            <text class="hist-img-sub">{{item.upgradeTarget}}</text>
+          </view>
+        </view>
+        <view class="hist-info">
+          <text class="hist-title">{{item.title}}</text>
+          <text class="hist-time">{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" tt:else>
+    <text class="empty-icon">👁️</text>
+    <text class="empty-text">暂无浏览记录</text>
+    <text class="empty-desc">去案例页逛逛吧</text>
+  </view>
+</view>

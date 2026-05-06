@@ -1,0 +1,148 @@
+<view class="container biz-page">
+  <!-- 页头（卡片式） -->
+  <view class="biz-hero-card">
+    <text class="biz-hero-title">核心业务</text>
+    <text class="biz-hero-desc">奔驰 / 宝马 / 保时捷等德系车常见服务方向说明</text>
+    <view class="biz-hero-legal">
+      <text class="biz-hero-legal-text">仅供了解业务范畴：配件清单、适用车型、工期与报价均需到店勘车后书面确认，不构成线上承诺。</text>
+    </view>
+  </view>
+
+  <!-- 业务一：老改新升级 -->
+  <view class="biz-card">
+    <view class="biz-header">
+      <view class="biz-num">01</view>
+      <view class="biz-header-text">
+        <text class="biz-title">老改新外观升级</text>
+        <text class="biz-tag">核心主营</text>
+      </view>
+    </view>
+    <view class="biz-content">
+      <text class="biz-desc">将老款车型外观升级为最新款风格，涵盖宝马3/5/7系、X3/X5/X6、奔驰E/S/GL/GLE、保时捷帕拉梅拉/卡宴等全车系。通过更换大灯、前杠包围、尾灯、后杠等外观件，让旧车焕发新款视觉效果。</text>
+      <view class="biz-items">
+        <view class="biz-item-tag">宝马3系 老改新</view>
+        <view class="biz-item-tag">宝马5系 老改新</view>
+        <view class="biz-item-tag">宝马7系 老改新</view>
+        <view class="biz-item-tag">奔驰S级 老改新</view>
+        <view class="biz-item-tag">奔驰E级 老改新</view>
+        <view class="biz-item-tag">保时捷帕拉梅拉/卡宴</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 业务二：迈巴赫升级 -->
+  <view class="biz-card">
+    <view class="biz-header">
+      <view class="biz-num">02</view>
+      <view class="biz-header-text">
+        <text class="biz-title">迈巴赫风格升级</text>
+        <text class="biz-tag">特色项目</text>
+      </view>
+    </view>
+    <view class="biz-content">
+      <text class="biz-desc">奔驰S级/GLE/GL升级迈巴赫外观，含迈巴赫专属大灯、前后包围中网、尾箱盖、隐藏式门把手、倒车镜等全套改装。无损安装或切割钣金两种方案可选，打造迈巴赫豪华风格。</text>
+      <view class="biz-items">
+        <view class="biz-item-tag">S级升级迈巴赫</view>
+        <view class="biz-item-tag">GLS升级迈巴赫</view>
+        <view class="biz-item-tag">隐藏式门把手</view>
+        <view class="biz-item-tag">迈巴赫大灯</view>
+        <view class="biz-item-tag">迈巴赫包围</view>
+        <view class="biz-item-tag">无损/切割可选</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 业务三：AMG/M运动升级 -->
+  <view class="biz-card">
+    <view class="biz-header">
+      <view class="biz-num">03</view>
+      <view class="biz-header-text">
+        <text class="biz-title">AMG / M运动升级</text>
+        <text class="biz-tag">性能风格</text>
+      </view>
+    </view>
+    <view class="biz-content">
+      <text class="biz-desc">奔驰AMG/宝马M运动套件升级，含AMG/M专属前后杠包围、运动大灯、运动尾灯、尾翼、尾喉尾唇。让普通版车辆变身性能版外观，彰显运动气质。</text>
+      <view class="biz-items">
+        <view class="biz-item-tag">AMG运动包围</view>
+        <view class="biz-item-tag">M运动包围</view>
+        <view class="biz-item-tag">X5M / X6M升级</view>
+        <view class="biz-item-tag">运动大灯</view>
+        <view class="biz-item-tag">运动尾灯</view>
+        <view class="biz-item-tag">运动尾喉尾唇</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 业务四：无损安装 -->
+  <view class="biz-card">
+    <view class="biz-header">
+      <view class="biz-num">04</view>
+      <view class="biz-header-text">
+        <text class="biz-title">无损安装方案</text>
+        <text class="biz-tag">保留原车</text>
+      </view>
+    </view>
+    <view class="biz-content">
+      <text class="biz-desc">不切割原车钣金，通过原厂接口位直接替换外观件，保留原车结构完整性。旧件可归还，适合对原车结构有要求的车主。多数车型均可采用无损方案。</text>
+      <view class="biz-items">
+        <view class="biz-item-tag">不切割原车结构</view>
+        <view class="biz-item-tag">原车位直接替换</view>
+        <view class="biz-item-tag">旧件归还</view>
+        <view class="biz-item-tag">多车型适用</view>
+        <view class="biz-item-tag">施工周期短</view>
+        <view class="biz-item-tag">性价比高</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 业务五：切割钣金 -->
+  <view class="biz-card">
+    <view class="biz-header">
+      <view class="biz-num">05</view>
+      <view class="biz-header-text">
+        <text class="biz-title">切割钣金工艺</text>
+        <text class="biz-tag">深度改装</text>
+      </view>
+    </view>
+    <view class="biz-content">
+      <text class="biz-desc">后叶子板切割钣金，实现跨代车型外观升级。专业钣金技师施工，确保切割精度和焊接质量。旧件回收，含配件局部喷漆，完成度高。</text>
+      <view class="biz-items">
+        <view class="biz-item-tag">后叶子板切割</view>
+        <view class="biz-item-tag">专业钣金焊接</view>
+        <view class="biz-item-tag">旧件回收</view>
+        <view class="biz-item-tag">含局部喷漆</view>
+        <view class="biz-item-tag">完成度高</view>
+        <view class="biz-item-tag">跨代外观升级</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 业务六：喷漆服务 -->
+  <view class="biz-card">
+    <view class="biz-header">
+      <view class="biz-num">06</view>
+      <view class="biz-header-text">
+        <text class="biz-title">喷漆服务</text>
+        <text class="biz-tag">原厂工艺</text>
+      </view>
+    </view>
+    <view class="biz-content">
+      <text class="biz-desc">升级项目常见的喷漆需求包含配件局部调色与喷涂；也可在评估后承接全车喷漆、局部补漆、划痕修复等（是否适用以勘车为准）。工艺与材料级别由门店与您书面约定。</text>
+      <view class="biz-items">
+        <view class="biz-item-tag">配件局部喷漆</view>
+        <view class="biz-item-tag">鹦鹉335光油油漆</view>
+        <view class="biz-item-tag">专业调色</view>
+        <view class="biz-item-tag">全车喷漆</view>
+        <view class="biz-item-tag">局部补漆</view>
+        <view class="biz-item-tag">划痕修复</view>
+      </view>
+    </view>
+  </view>
+
+  <float-btn />
+
+  <!-- 底部Tab导航 -->
+  <import src="/components/tab-bar/tab-bar" />
+  <template is="tabBar" data="{{ activeIndex: 99 }}" />
+</view>

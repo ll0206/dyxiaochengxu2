@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "核心业务",
+  "usingComponents": {
+    "float-btn": "/components/float-btn/float-btn"
+  }
+}

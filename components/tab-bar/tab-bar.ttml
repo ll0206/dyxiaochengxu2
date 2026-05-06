@@ -1,0 +1,22 @@
+<template name="tabBar">
+  <view class="tab-bar">
+    <view class="tab-item {{activeIndex===0?'tab-active':''}}" bindtap="switchTab" data-index="0">
+      <view class="tab-icon-wrap">
+        <text class="tab-icon-char">首</text>
+      </view>
+      <text class="tab-text">首页</text>
+    </view>
+    <view class="tab-item {{activeIndex===1?'tab-active':''}}" bindtap="switchTab" data-index="1">
+      <view class="tab-icon-wrap">
+        <text class="tab-icon-char">例</text>
+      </view>
+      <text class="tab-text">实拍案例</text>
+    </view>
+    <view class="tab-item {{activeIndex===2?'tab-active':''}}" bindtap="switchTab" data-index="2">
+      <view class="tab-icon-wrap">
+        <text class="tab-icon-char">我</text>
+      </view>
+      <text class="tab-text">我的</text>
+    </view>
+  </view>
+</template>

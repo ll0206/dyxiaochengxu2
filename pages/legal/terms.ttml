@@ -1,0 +1,47 @@
+<scroll-view class="legal-scroll" scroll-y>
+  <view class="legal-inner">
+    <text class="legal-title">用户服务协议</text>
+    <view class="legal-updated-wrap">
+      <text class="legal-updated">更新日期：2026年5月4日</text>
+      <text class="legal-updated">生效日期：2026年5月4日</text>
+      <text class="legal-updated">适用产品：车尚友抖音小程序</text>
+    </view>
+
+    <view class="operator-card">
+      <text class="operator-row"><text class="operator-label">运营主体：</text>{{companyName}}</text>
+      <text class="operator-row"><text class="operator-label">联系地址：</text>{{address}}</text>
+      <text class="operator-row"><text class="operator-label">联系电话：</text>{{phone}}</text>
+      <text class="operator-row"><text class="operator-label">营业时间：</text>{{businessHours}}</text>
+    </view>
+
+    <text class="legal-h2">一、协议的接受与变更</text>
+    <text class="legal-p">1.1 欢迎使用本小程序。您通过网络页面点击确认、实际使用本小程序服务或以平台认可的其他方式选择接受本协议的，即视为您已阅读并同意签署本协议。</text>
+    <text class="legal-p">1.2 我们有权在必要时修改本协议或相关规则，并通过小程序内公告或页面提示等方式告知。变更内容公布后即生效；若您不同意变更，请停止使用服务。</text>
+
+    <text class="legal-h2">二、服务内容说明</text>
+    <text class="legal-p">2.1 本小程序由{{companyName}}运营，用于展示企业形象、业务范围、实拍案例及联系方式，并提供在线咨询预约入口（具体以页面实际功能为准）。</text>
+    <text class="legal-p">2.2 您理解并同意：本小程序中展示的案例、价格、文案等信息仅供宣传与初步参考，不构成任何形式的要约或承诺；具体施工方案、配件选型、工期、费用及质保等，以到店勘车、书面报价及双方签署的约定为准。</text>
+    <text class="legal-p">2.3 汽车改装、外观升级等项目可能涉及车辆登记与法律法规要求，您应确保具备合法合规的前提条件；因法律法规或行政管理规定导致的限制或后果，由您依法自行承担或与我们另行依法约定。</text>
+
+    <text class="legal-h2">三、用户行为规范</text>
+    <text class="legal-p">3.1 您保证提交的信息真实、合法，不得冒用他人身份或从事欺诈等行为。</text>
+    <text class="legal-p">3.2 您不得利用本小程序传播违法、侵权、低俗、虚假或干扰平台秩序的内容，不得从事破坏系统安全的行为。</text>
+
+    <text class="legal-h2">四、预约与沟通</text>
+    <text class="legal-p">4.1 您通过表单等方式提交的预约或留言，仅代表意向沟通；门店将通过电话等方式与您确认，是否达成服务关系以双方后续确认为准。</text>
+    <text class="legal-p">4.2 请您保持联系方式畅通；因您提供错误联系方式或未及时接听等原因导致的沟通延误，我们将在合理范围内免责。</text>
+
+    <text class="legal-h2">五、知识产权</text>
+    <text class="legal-p">本小程序涉及的界面设计、图文内容（依法属于第三方权利的除外）相关知识产权归运营主体或权利人所有，未经许可不得擅自复制、传播或用于商业用途。</text>
+
+    <text class="legal-h2">六、免责声明</text>
+    <text class="legal-p">6.1 因不可抗力、网络故障、系统维护、第三方原因或非我方过错导致的服务中断或数据丢失，我们在法律法规允许的范围内免于承担责任或仅承担有限责任。</text>
+    <text class="legal-p">6.2 您通过本小程序跳转至第三方服务（如地图导航）的，相关风险由您与第三方自行承担。</text>
+
+    <text class="legal-h2">七、争议解决</text>
+    <text class="legal-p">本协议的订立、效力、解释与争议解决适用中华人民共和国大陆地区法律。双方应先友好协商；协商不成的，可向被告住所地有管辖权的人民法院提起诉讼。</text>
+
+    <text class="legal-h2">八、联系我们</text>
+    <text class="legal-p">如您对本协议有疑问，可通过电话 {{phone}} 与我们沟通，或前往 {{address}}。</text>
+  </view>
+</scroll-view>

@@ -1,0 +1,16 @@
+{
+    "setting": {
+        "urlCheck": true,
+        "es6": true,
+        "postcss": true,
+        "minified": true,
+        "newFeature": true,
+        "autoCompile": true,
+        "compileHotReLoad": true,
+        "nativeCompile": true
+    },
+    "appid": "tt89caff7717abc0cb01",
+    "projectname": "铭车汇改企业介绍",
+    "douyinProjectType": "native",
+    "cloudfunctionRoot": "cloudfunctions/"
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "实拍案例",
+  "usingComponents": {
+    "float-btn": "/components/float-btn/float-btn"
+  }
+}

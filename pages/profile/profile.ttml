@@ -1,0 +1,207 @@
+<view class="container">
+  <!-- 用户信息区 -->
+  <view class="profile-header">
+    <view class="user-card" bindtap="onLogin">
+      <image tt:if="{{userInfo && userInfo.avatar}}" class="user-avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+      <view tt:else class="user-avatar user-avatar-placeholder">
+        <text class="user-avatar-letter">{{avatarLetter}}</text>
+      </view>
+      <view class="user-info">
+        <text class="user-name">{{userInfo ? userInfo.nickname : '点击登录'}}</text>
+        <text class="user-phone" tt:if="{{userInfo}}">门店热线 {{maskedPhone}}</text>
+        <text class="user-tip" tt:else>登录后可同步昵称头像 · 门店 {{maskedPhone}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 常用功能宫格 -->
+  <view class="profile-quick-card">
+    <view class="profile-quick-row">
+      <view class="profile-quick-item" bindtap="goAppointments">
+        <view class="profile-quick-icon"><text class="profile-quick-char">约</text></view>
+        <text class="profile-quick-label">预约</text>
+      </view>
+      <view class="profile-quick-item" bindtap="goFavorites">
+        <view class="profile-quick-icon"><text class="profile-quick-char">藏</text></view>
+        <text class="profile-quick-label">收藏</text>
+      </view>
+      <view class="profile-quick-item" bindtap="goHistory">
+        <view class="profile-quick-icon"><text class="profile-quick-char">迹</text></view>
+        <text class="profile-quick-label">足迹</text>
+      </view>
+      <view class="profile-quick-item" bindtap="goConstruction">
+        <view class="profile-quick-icon"><text class="profile-quick-char">工</text></view>
+        <text class="profile-quick-label">施工</text>
+      </view>
+      <view class="profile-quick-item" bindtap="goCoupons">
+        <view class="profile-quick-icon"><text class="profile-quick-char">券</text></view>
+        <text class="profile-quick-label">优惠券</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 核心业务 -->
+  <view class="profile-biz-section">
+    <view class="profile-biz-header">
+      <text class="profile-biz-title">核心业务</text>
+      <text class="profile-biz-desc">奔驰 / 宝马 / 保时捷等德系车服务</text>
+    </view>
+    <view class="profile-biz-grid">
+      <view class="profile-biz-card" bindtap="goBusiness" data-type="old-new">
+        <text class="profile-biz-num">01</text>
+        <text class="profile-biz-card-title">老改新外观升级</text>
+        <text class="profile-biz-card-desc">宝马/奔驰/保时捷老款改新款</text>
+        <text class="profile-biz-tag-main">核心主营</text>
+      </view>
+      <view class="profile-biz-card" bindtap="goBusiness" data-type="maybach">
+        <text class="profile-biz-num">02</text>
+        <text class="profile-biz-card-title">迈巴赫风格升级</text>
+        <text class="profile-biz-card-desc">S级/GLS升级迈巴赫外观</text>
+        <text class="profile-biz-tag">特色项目</text>
+      </view>
+      <view class="profile-biz-card" bindtap="goBusiness" data-type="amg">
+        <text class="profile-biz-num">03</text>
+        <text class="profile-biz-card-title">AMG / M运动升级</text>
+        <text class="profile-biz-card-desc">AMG/M专属运动套件</text>
+        <text class="profile-biz-tag">性能风格</text>
+      </view>
+      <view class="profile-biz-card" bindtap="goBusiness" data-type="non-destructive">
+        <text class="profile-biz-num">04</text>
+        <text class="profile-biz-card-title">无损安装方案</text>
+        <text class="profile-biz-card-desc">不切割原车，原车位替换</text>
+        <text class="profile-biz-tag">保留原车</text>
+      </view>
+      <view class="profile-biz-card" bindtap="goBusiness" data-type="cutting">
+        <text class="profile-biz-num">05</text>
+        <text class="profile-biz-card-title">切割钣金工艺</text>
+        <text class="profile-biz-card-desc">后叶子板切割，跨代升级</text>
+        <text class="profile-biz-tag">深度改装</text>
+      </view>
+      <view class="profile-biz-card" bindtap="goBusiness" data-type="paint">
+        <text class="profile-biz-num">06</text>
+        <text class="profile-biz-card-title">喷漆服务</text>
+        <text class="profile-biz-card-desc">局部/全车喷漆 划痕修复</text>
+        <text class="profile-biz-tag">原厂工艺</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-item" bindtap="goCarProfile">
+      <view class="menu-left">
+        <text class="menu-icon">🚗</text>
+        <text class="menu-label">我的车辆</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-value">{{carInfo ? carInfo.plate : '未绑定'}}</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="menu-item" bindtap="goAppointments">
+      <view class="menu-left">
+        <text class="menu-icon">📅</text>
+        <text class="menu-label">我的预约</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-value">{{appointmentCount}}条</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="menu-item" bindtap="goFavorites">
+      <view class="menu-left">
+        <text class="menu-icon">❤️</text>
+        <text class="menu-label">我的收藏</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-value">{{favoriteCount}}个</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="menu-item" bindtap="goHistory">
+      <view class="menu-left">
+        <text class="menu-icon">👁️</text>
+        <text class="menu-label">浏览历史</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-value">{{historyCount}}条</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="menu-item" bindtap="goConstruction">
+      <view class="menu-left">
+        <text class="menu-icon">🔧</text>
+        <text class="menu-label">施工进度</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-value">{{constructionLabel || '暂无'}}</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+
+    <view class="menu-item" bindtap="goCoupons">
+      <view class="menu-left">
+        <text class="menu-icon">🎫</text>
+        <text class="menu-label">优惠券</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-value">{{couponCount}}张可用</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+    <view class="menu-item" bindtap="goAbout">
+      <view class="menu-left">
+        <text class="menu-icon"></text>
+        <text class="menu-label">关于我们</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goContact">
+      <view class="menu-left">
+        <text class="menu-icon">📍</text>
+        <text class="menu-label">联系我们</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="menu-section legal-section">
+    <view class="menu-item" bindtap="goPrivacy">
+      <view class="menu-left">
+        <text class="menu-icon">🔒</text>
+        <text class="menu-label">隐私政策</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goTerms">
+      <view class="menu-left">
+        <text class="menu-icon">📜</text>
+        <text class="menu-label">用户服务协议</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="onClearLocalData">
+      <view class="menu-left">
+        <text class="menu-icon">🗑️</text>
+        <text class="menu-label">清除本地数据</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 底部操作 -->
+  <view class="bottom-actions">
+    <view class="action-btn" bindtap="makeCall">
+      <text class="action-icon">📞</text>
+      <text class="action-text">电话咨询</text>
+    </view>
+  </view>
+
+  <!-- 底部Tab导航 -->
+  <import src="/components/tab-bar/tab-bar" />
+  <template is="tabBar" data="{{ activeIndex: 2 }}" />
+</view>

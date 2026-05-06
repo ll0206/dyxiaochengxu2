@@ -1,0 +1,52 @@
+<scroll-view class="legal-scroll" scroll-y>
+  <view class="legal-inner">
+    <text class="legal-title">隐私政策</text>
+    <view class="legal-updated-wrap">
+      <text class="legal-updated">更新日期：2026年5月4日</text>
+      <text class="legal-updated">生效日期：2026年5月4日</text>
+      <text class="legal-updated">适用产品：车尚友抖音小程序</text>
+    </view>
+
+    <view class="operator-card">
+      <text class="operator-row"><text class="operator-label">运营主体：</text>{{companyName}}</text>
+      <text class="operator-row"><text class="operator-label">联系地址：</text>{{address}}</text>
+      <text class="operator-row"><text class="operator-label">联系电话：</text>{{phone}}</text>
+      <text class="operator-row"><text class="operator-label">营业时间：</text>{{businessHours}}</text>
+    </view>
+
+    <text class="legal-h2">引言</text>
+    <text class="legal-p">我们深知个人信息对您的重要性，将按照法律法规要求，采取相应安全保护措施，尽力保护您的个人信息安全可控。本政策适用于「车尚友」抖音小程序（下称「本小程序」）向您提供的各项功能与服务。请您在使用前仔细阅读并理解本政策，特别是以粗体或下划线方式标识的条款；若您不同意，将无法使用部分依赖授权的功能，您仍可使用浏览、电话咨询等不需要授权的基础能力。</text>
+
+    <text class="legal-h2">一、我们如何收集和使用信息</text>
+    <text class="legal-p">1.1 为实现向您展示公司简介、实拍案例、业务范围及联系方式，我们会在必要范围内处理您在使用服务过程中主动提供或因使用服务而产生的信息。</text>
+    <text class="legal-p">1.2 头像与昵称：当您点击登录并使用抖音开放平台提供的用户信息能力时，我们可能获取您在抖音平台的昵称、头像，用于在本小程序「个人中心」展示。您拒绝授权时，将无法使用该展示功能，但不影响您浏览案例与拨打门店电话。</text>
+    <text class="legal-p">1.3 线下沟通类信息：当您在「联系我们」等页面填写姓名、手机号码、车型、车牌号、预约意向、需求描述等，该类信息仅用于门店与您电话沟通、预约安排之目的。当前版本默认将上述表单信息保存在您的设备本地（见下文「存储」说明），便于您在「我的预约」中查看；如您后续版本接入服务端，我们将在本政策中更新并向您提示。</text>
+    <text class="legal-p">1.4 设备本地功能数据：为提升使用体验，我们可能在本设备存储与您相关的本地记录，例如：收藏的案例、浏览历史、点赞与收藏状态（按案例维度）、车辆档案草稿、优惠券「已使用」标记、施工进度展示所需的本机缓存数据等。此类数据不与账号体系强制绑定，清除本地数据后将无法恢复。</text>
+    <text class="legal-p">1.5 拨打电话：当您使用「一键拨号」等功能时，我们需要调用系统拨号能力，不会以此收集额外个人信息。</text>
+    <text class="legal-p">1.6 地图与定位：当您使用「打开地图导航」时，我们将调用第三方地图应用或系统能力协助您导航至门店地址，具体数据处理规则以地图服务提供方为准。</text>
+    <text class="legal-p">1.7 复制到剪贴板：当您使用「复制电话」「复制地址」时，我们将您选择的内容写入系统剪贴板，便于您粘贴使用；我们不会读取与您无关的剪贴板内容。</text>
+
+    <text class="legal-h2">二、抖音平台与第三方</text>
+    <text class="legal-p">2.1 本小程序运行于抖音平台，您使用本小程序时应同时遵守抖音平台规则及抖音隐私政策等相关约定。</text>
+    <text class="legal-p">2.2 除法律法规另有规定或取得您另行同意外，我们不会向无关第三方出售您的个人信息。如因业务需要通过第三方 SDK 或接口提供服务，我们将依法告知并获得必要同意。</text>
+
+    <text class="legal-h2">三、信息的存储与安全</text>
+    <text class="legal-p">3.1 存储地点：当前版本中，表单及前述本地功能数据主要存储于您的移动终端设备；请您妥善保管设备。</text>
+    <text class="legal-p">3.2 存储期限：在您使用本小程序期间，我们将按实现目的所必需的最短期限保存信息；本地数据在您清除缓存、卸载小程序或主动清除本地数据时可能被删除。</text>
+    <text class="legal-p">3.3 安全措施：我们采用合理的技术与管理措施防止信息泄露、损毁或丢失；请您理解，任何安全措施都无法做到绝对可靠。</text>
+
+    <text class="legal-h2">四、您的权利</text>
+    <text class="legal-p">4.1 您可以通过本小程序「个人中心」内的「清除本地数据」功能，删除存储于本设备的预约记录、收藏、浏览历史、车辆信息、登录状态及优惠券使用标记等（具体操作以页面提示为准）。</text>
+    <text class="legal-p">4.2 若后续版本存在服务端存储，您可联系我们行使查阅、复制、更正、删除等权利，我们将在核实身份后依法处理。</text>
+    <text class="legal-p">4.3 您可随时停止使用本小程序，并通过抖音客户端的相关设置管理对本小程序的授权。</text>
+
+    <text class="legal-h2">五、未成年人保护</text>
+    <text class="legal-p">若您为未成年人，请在监护人陪同下阅读本政策，并在监护人同意后使用我们的服务。</text>
+
+    <text class="legal-h2">六、本政策的更新</text>
+    <text class="legal-p">我们可能适时修订本政策。更新后，我们会通过小程序内公告或页面提示等合理方式告知您；若变更涉及收集使用方式的重大变化，我们将依法重新取得必要同意。</text>
+
+    <text class="legal-h2">七、联系我们</text>
+    <text class="legal-p">如您对本政策有任何疑问、意见或投诉，可通过本小程序公示的电话与我们联系：{{phone}}，或前往门店地址沟通：{{address}}。</text>
+  </view>
+</scroll-view>

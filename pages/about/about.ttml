@@ -1,0 +1,126 @@
+<view class="corp-page">
+  <!-- 顶部五宫格（参考：浅蓝圆底 + 蓝主色） -->
+  <view class="corp-card corp-nav-card">
+    <view class="corp-nav-row">
+      <view class="corp-nav-item" bindtap="scrollToIntro">
+        <view class="corp-nav-icon-wrap">
+          <text class="corp-nav-icon">司</text>
+        </view>
+        <text class="corp-nav-label">公司简介</text>
+      </view>
+      <view class="corp-nav-item" bindtap="goBusiness">
+        <view class="corp-nav-icon-wrap">
+          <text class="corp-nav-icon">品</text>
+        </view>
+        <text class="corp-nav-label">产品介绍</text>
+      </view>
+      <view class="corp-nav-item" bindtap="goCases">
+        <view class="corp-nav-icon-wrap">
+          <text class="corp-nav-icon">景</text>
+        </view>
+        <text class="corp-nav-label">企业风采</text>
+      </view>
+      <view class="corp-nav-item" bindtap="goContact">
+        <view class="corp-nav-icon-wrap">
+          <text class="corp-nav-icon">言</text>
+        </view>
+        <text class="corp-nav-label">留言反馈</text>
+      </view>
+      <view class="corp-nav-item" bindtap="scrollToNews">
+        <view class="corp-nav-icon-wrap">
+          <text class="corp-nav-icon">讯</text>
+        </view>
+        <text class="corp-nav-label">新闻动态</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分区入口行 -->
+  <view class="corp-card corp-row" bindtap="scrollToIntro">
+    <text class="corp-row-title">公司简介</text>
+    <view class="corp-row-more">
+      <text class="corp-row-more-text">查看更多</text>
+      <text class="corp-row-chev">›</text>
+    </view>
+  </view>
+
+  <view class="corp-card corp-row" bindtap="goBusiness">
+    <text class="corp-row-title">产品介绍</text>
+    <view class="corp-row-more">
+      <text class="corp-row-more-text">查看更多</text>
+      <text class="corp-row-chev">›</text>
+    </view>
+  </view>
+
+  <view class="corp-card corp-row" bindtap="scrollToNews">
+    <text class="corp-row-title">新闻动态</text>
+    <view class="corp-row-more">
+      <text class="corp-row-more-text">查看更多</text>
+      <text class="corp-row-chev">›</text>
+    </view>
+  </view>
+
+  <!-- 简介正文 -->
+  <view id="corp-intro" class="corp-card corp-block">
+    <text class="corp-block-title">公司简介</text>
+    <text class="corp-block-text">车尚友（广州）汽车科技有限公司注册并运营于广州市白云区江高镇（详细地址与营业时间见「联系我们」）。公司面向奔驰、宝马、保时捷等品牌车主，提供外观升级、内饰翻新及德系车维修整备等服务；沟通方式以电话预约与到店勘车为主，费用与工期以双方确认的书面约定为准。</text>
+  </view>
+
+  <view class="corp-card corp-block">
+    <text class="corp-block-title">工厂规模</text>
+    <view class="corp-stats">
+      <view class="corp-stat">
+        <text class="corp-stat-num">11600</text>
+        <text class="corp-stat-unit">㎡</text>
+        <text class="corp-stat-label">自有施工场地</text>
+      </view>
+      <view class="corp-stat">
+        <text class="corp-stat-num">365</text>
+        <text class="corp-stat-unit">天</text>
+        <text class="corp-stat-label">全年营业接单</text>
+      </view>
+      <view class="corp-stat">
+        <text class="corp-stat-num">10+</text>
+        <text class="corp-stat-unit">年</text>
+        <text class="corp-stat-label">行业深耕经验</text>
+      </view>
+    </view>
+    <text class="corp-block-text">公司在广州白云区配置大型改装维修场地，设多个施工工位，配备拆装、喷漆及检测等相关设备。具体服务能力与档期需结合当前工单情况，由门店与您沟通确认。</text>
+  </view>
+
+  <view class="corp-card corp-block">
+    <text class="corp-block-title">技术实力</text>
+    <view class="corp-line" tt:for="{{techLines}}" tt:key="*this">
+      <view class="corp-dot"></view>
+      <text class="corp-line-text">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="corp-card corp-block">
+    <text class="corp-block-title">经营理念</text>
+    <view class="corp-philo" tt:for="{{philosophy}}" tt:key="label">
+      <text class="corp-philo-label">{{item.label}}</text>
+      <text class="corp-philo-text">{{item.text}}</text>
+    </view>
+  </view>
+
+  <!-- 新闻动态 -->
+  <view id="corp-news" class="corp-card corp-block">
+    <text class="corp-block-title">新闻动态</text>
+    <view class="corp-news-item" tt:for="{{newsList}}" tt:key="title">
+      <text class="corp-news-date">{{item.date}}</text>
+      <text class="corp-news-title">{{item.title}}</text>
+    </view>
+  </view>
+
+  <!-- 留言反馈 CTA -->
+  <view class="corp-card corp-feedback">
+    <text class="corp-feedback-title">留言反馈</text>
+    <text class="corp-feedback-sub">愉快的合作，从第一次沟通开始！</text>
+    <view class="corp-btn" bindtap="goContact">
+      <text class="corp-btn-text">反馈信息</text>
+    </view>
+  </view>
+
+  <float-btn />
+</view>

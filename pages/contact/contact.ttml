@@ -1,0 +1,189 @@
+<view class="container contact-page">
+  <view class="contact-hero-card">
+    <text class="contact-hero-title">联系我们</text>
+    <text class="contact-hero-desc">欢迎到店咨询 · 预约到店少等待</text>
+    <view class="quick-actions">
+      <view class="qa-btn qa-primary" bindtap="makeCall">
+        <text class="qa-text">一键拨号</text>
+      </view>
+      <view class="qa-btn" bindtap="copyPhone">
+        <text class="qa-text muted">复制电话</text>
+      </view>
+      <view class="qa-btn" bindtap="copyAddress">
+        <text class="qa-text muted">复制地址</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务说明 -->
+  <view class="service-notice card">
+    <view class="notice-title">到店服务说明</view>
+    <view class="notice-content">
+      <text class="notice-text">车尚友提供奔驰宝马全系车型的专业升级与维修服务。建议您提前电话预约，我们将安排专属顾问接待，避免到店等候。预约不收取任何费用。</text>
+    </view>
+    <view class="notice-steps">
+      <view class="step-item">
+        <text class="step-num">1</text>
+        <text class="step-text">电话咨询项目</text>
+      </view>
+      <view class="step-arrow">→</view>
+      <view class="step-item">
+        <text class="step-num">2</text>
+        <text class="step-text">预约到店时间</text>
+      </view>
+      <view class="step-arrow">→</view>
+      <view class="step-item">
+        <text class="step-num">3</text>
+        <text class="step-text">到店验车施工</text>
+      </view>
+      <view class="step-arrow">→</view>
+      <view class="step-item">
+        <text class="step-num">4</text>
+        <text class="step-text">质检交付提车</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 公司信息 -->
+  <view class="info-card card">
+    <view class="info-title">公司信息</view>
+    <view class="info-row">
+      <text class="info-label">公司名称</text>
+      <text class="info-value">车尚友（广州）汽车科技有限公司</text>
+    </view>
+    <view class="info-divider"></view>
+    <view class="info-row">
+      <text class="info-label">主营项目</text>
+      <text class="info-value">奔驰宝马老改新、原厂升级、维修整备、内饰翻新、外观改装、德系精修</text>
+    </view>
+  </view>
+
+  <!-- 地址信息 -->
+  <view class="info-card card">
+    <view class="info-title">门店地址</view>
+    <view class="info-row">
+      <text class="info-label">详细地址</text>
+      <text class="info-value">广州市白云区江高镇广花二路935号3栋101房</text>
+    </view>
+    <view class="info-divider"></view>
+    <view class="info-row">
+      <text class="info-label">营业时间</text>
+      <text class="info-value">周一至周日 9:00–19:00</text>
+    </view>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="info-card card">
+    <view class="info-title">联系方式</view>
+    <view class="info-row">
+      <text class="info-label">联系电话</text>
+      <text class="info-value phone-number">188-2016-3820</text>
+    </view>
+    <view class="info-divider"></view>
+    <view class="info-row">
+      <text class="info-label">服务时间</text>
+      <text class="info-value">周一至周日 9:00–19:00（含节假日）</text>
+    </view>
+  </view>
+
+  <!-- 地图定位 -->
+  <view class="map-card card">
+    <view class="info-title" style="margin-bottom: 20rpx;">导航到店</view>
+    <view class="map-placeholder">
+      <text class="map-icon">📍</text>
+      <text class="map-text">车尚友（广州）汽车科技有限公司</text>
+      <text class="map-address">广州市白云区江高镇广花二路935号3栋101房</text>
+    </view>
+    <button class="nav-btn" bindtap="openLocation">打开地图导航</button>
+  </view>
+
+  <!-- 预约/留言服务预期说明（满足可用性规范：预约场景需说明服务内容） -->
+  <view class="booking-scope card">
+    <view class="scope-title">留言与预约说明</view>
+    <text class="scope-intro">本页「在线留言」用于意向沟通与预约回访，不产生线上支付或强制订单。请您先了解可咨询的服务范围及后续流程，再填写表单。</text>
+    <text class="scope-sub">可咨询的服务类型包括：</text>
+    <view class="scope-list">
+      <view class="scope-row" tt:for="{{serviceTypes}}" tt:key="*this">
+        <text class="scope-bullet">•</text>
+        <text class="scope-item-text">{{item}}</text>
+      </view>
+    </view>
+    <text class="scope-flow">提交后的典型流程：门店在工作时间内致电与您确认需求 → 协商到店时间 → 到店验车与书面报价 → 双方确认后再施工交付。具体工期与费用以到店勘车后约定为准。</text>
+  </view>
+
+  <!-- 在线留言表单 -->
+  <view class="form-card card">
+    <view class="info-title" style="margin-bottom: 20rpx;">在线留言</view>
+    <view class="form-tip">
+      <text class="form-tip-text">请填写真实联系方式，便于顾问回访（预约不收取任何费用）</text>
+    </view>
+    <view class="form-item">
+      <text class="form-label">姓名</text>
+      <input class="form-input" placeholder="请输入您的姓名" value="{{form.name}}" bindinput="onInputName" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">联系电话</text>
+      <input class="form-input" type="number" placeholder="请输入您的手机号码" value="{{form.phone}}" bindinput="onInputPhone" maxlength="11" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">车型（选填）</text>
+      <input class="form-input" placeholder="例如：奔驰S级 2020款" value="{{form.carModel}}" bindinput="onInputCarModel" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">车牌号（选填）</text>
+      <input class="form-input" placeholder="例如：粤A12345" value="{{form.licensePlate}}" bindinput="onInputPlate" />
+    </view>
+    <view class="form-item">
+      <text class="form-label">服务类型</text>
+      <view class="form-picker" bindtap="showTypePicker">
+        <text class="form-picker-text {{form.serviceType ? 'form-picker-selected' : ''}}">
+          {{form.serviceType || '请选择服务类型'}}
+        </text>
+        <text class="form-picker-arrow">▼</text>
+      </view>
+    </view>
+    <!-- 服务类型下拉选择 -->
+    <view class="type-picker-dropdown" tt:if="{{showTypePicker}}">
+      <view class="type-mask" bindtap="hideTypePicker"></view>
+      <view class="type-options">
+        <view class="type-option" tt:for="{{serviceTypes}}" tt:key="*this" bindtap="onTypeChange" data-index="{{index}}">
+          <text class="type-option-text {{typeIndex === index ? 'type-active' : ''}}">{{item}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="form-item">
+      <text class="form-label">期望到店日期（选填）</text>
+      <picker class="form-picker-input" mode="date" value="{{form.appointmentDate}}" bindchange="onInputDate">
+        <view class="form-picker-date">
+          <text class="form-picker-text {{form.appointmentDate ? 'form-picker-selected' : ''}}">
+            {{form.appointmentDate || '点击选择日期'}}
+          </text>
+        </view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <text class="form-label">期望时段（选填）</text>
+      <view class="time-slots">
+        <view class="time-slot {{timeSlotIndex === index ? 'time-slot-active' : ''}}" tt:for="{{timeSlots}}" tt:key="*this" bindtap="onTimeSlotChange" data-index="{{index}}">
+          <text>{{item}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="form-item">
+      <text class="form-label">需求描述（选填）</text>
+      <textarea class="form-textarea" placeholder="请描述您的需求，例如：想将老款升级为新款外观" value="{{form.description}}" bindinput="onInputDesc" maxlength="200" />
+      <text class="form-count">{{form.description ? form.description.length : 0}}/200</text>
+    </view>
+    <button class="submit-btn" bindtap="onSubmit">提交留言</button>
+    <text class="submit-tip">提交后我们将以电话方式与您联系；当前版本信息保存在您的手机本地，便于您在「我的预约」查看。</text>
+    <view class="legal-footer">
+      <text class="legal-footer-block">提交即表示您知晓：我们将使用您填写的联系方式与您沟通预约事宜；当前版本信息主要保存在您的设备本地。完整约定请阅读：</text>
+      <view class="legal-links-row">
+        <text class="legal-footer-link" bindtap="goPrivacy">《隐私政策》</text>
+        <text class="legal-footer-gap"> · </text>
+        <text class="legal-footer-link" bindtap="goTerms">《用户服务协议》</text>
+      </view>
+    </view>
+  </view>
+
+</view>

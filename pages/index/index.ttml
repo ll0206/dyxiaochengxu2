@@ -1,0 +1,210 @@
+<view class="container">
+  <!-- 轮播Banner -->
+  <swiper class="banner-swiper" autoplay circular interval="4000" duration="500" indicator-dots indicator-active-color="#ffffff" indicator-color="rgba(255,255,255,0.35)">
+    <swiper-item>
+      <view class="banner-item banner-1">
+        <view class="banner-content">
+          <text class="banner-title">奔驰宝马 老改新升级</text>
+          <text class="banner-desc">原厂高配升级 · 外观包围 · 内饰翻新</text>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="banner-item banner-2">
+        <view class="banner-content">
+          <text class="banner-title">专业改装工厂</text>
+          <text class="banner-desc">11600㎡施工车间 · 标准化作业流程</text>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="banner-item banner-3">
+        <view class="banner-content">
+          <text class="banner-title">维修整备 一站式服务</text>
+          <text class="banner-desc">底盘整备 · 发动机精修 · 钣金喷漆</text>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 案例搜索 -->
+  <view class="home-search-wrap">
+    <view class="home-search-inner">
+      <text class="home-search-icon">⌕</text>
+      <input class="home-search-input" placeholder="搜索实拍案例：车型、迈巴赫、F18…" value="{{homeSearchKeyword}}" bindinput="onHomeSearchInput" confirm-type="search" bindconfirm="onHomeSearchConfirm" />
+      <view class="home-search-go" bindtap="onHomeSearchConfirm">
+        <text class="home-search-go-text">搜索</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷入口（宫格） -->
+  <view class="home-nav-card">
+    <view class="home-nav-row">
+      <view class="home-nav-item" bindtap="goAbout">
+        <view class="home-nav-icon-wrap"><text class="home-nav-char">司</text></view>
+        <text class="home-nav-label">关于我们</text>
+      </view>
+      <view class="home-nav-item" bindtap="goBusiness">
+        <view class="home-nav-icon-wrap"><text class="home-nav-char">业</text></view>
+        <text class="home-nav-label">核心业务</text>
+      </view>
+      <view class="home-nav-item" bindtap="goToCases">
+        <view class="home-nav-icon-wrap"><text class="home-nav-char">例</text></view>
+        <text class="home-nav-label">实拍案例</text>
+      </view>
+      <view class="home-nav-item" bindtap="goContact">
+        <view class="home-nav-icon-wrap"><text class="home-nav-char">联</text></view>
+        <text class="home-nav-label">联系我们</text>
+      </view>
+      <view class="home-nav-item" bindtap="goProfile">
+        <view class="home-nav-icon-wrap"><text class="home-nav-char">我</text></view>
+        <text class="home-nav-label">我的</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 公告 + 数据概览（合并卡片） -->
+  <view class="home-metric-card">
+    <view class="announcement-bar">
+      <text class="announcement-icon">📢</text>
+      <swiper class="announcement-swiper" vertical autoplay circular interval="3000" duration="500">
+        <swiper-item tt:for="{{announcements}}" tt:key="*this">
+          <text class="announcement-text">{{item}}</text>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="metric-divider"></view>
+    <view class="stats-strip">
+      <view class="stat-item">
+        <text class="stat-value">{{caseCount}}</text>
+        <text class="stat-label">升级方案</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">3</text>
+        <text class="stat-label">豪华品牌</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item stat-item-wide">
+        <view class="stat-row">
+          <text class="stat-value">11600</text>
+          <text class="stat-unit">㎡</text>
+        </view>
+        <text class="stat-label">自有车间</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 公司简介 -->
+  <view class="intro-section">
+    <view class="intro-header">
+      <text class="intro-brand">车尚友</text>
+      <text class="intro-brand-en">CHE SHANG YOU AUTO</text>
+    </view>
+    <text class="intro-text">车尚友（广州）汽车科技有限公司在广州白云区运营德系车外观升级与维修整备服务。您可在本页下方浏览精选案例示意，了解大致方案方向；公司背景与工厂介绍请前往「关于我们」，各业务条线说明请前往「核心业务」。预约与导航请使用「联系我们」。</text>
+  </view>
+
+  <!-- 服务亮点（卡片 + 标题行） -->
+  <view class="hl-card">
+    <view class="hl-card-head">
+      <view class="hl-card-head-left">
+        <text class="hl-card-title">服务亮点</text>
+        <text class="hl-card-sub">四个方向 · 详情以到店沟通为准</text>
+      </view>
+      <view class="hl-card-more" bindtap="goBusiness">
+        <text class="hl-card-more-text">了解更多</text>
+        <text class="hl-card-chev">›</text>
+      </view>
+    </view>
+    <view class="highlights-grid">
+      <view class="highlight-item">
+        <view class="highlight-icon-wrap">
+          <text class="highlight-icon">🔧</text>
+        </view>
+        <text class="highlight-title">老改新升级</text>
+        <text class="highlight-desc">奔驰宝马全系外观/内饰/配置升级</text>
+      </view>
+      <view class="highlight-item">
+        <view class="highlight-icon-wrap">
+          <text class="highlight-icon">🏭</text>
+        </view>
+        <text class="highlight-title">自有工厂</text>
+        <text class="highlight-desc">11600㎡标准化施工车间</text>
+      </view>
+      <view class="highlight-item">
+        <view class="highlight-icon-wrap">
+          <text class="highlight-icon">👨‍🔧</text>
+        </view>
+        <text class="highlight-title">专业团队</text>
+        <text class="highlight-desc">多年德系车施工经验技师</text>
+      </view>
+      <view class="highlight-item">
+        <view class="highlight-icon-wrap">
+          <text class="highlight-icon">🛡️</text>
+        </view>
+        <text class="highlight-title">品质保障</text>
+        <text class="highlight-desc">标准化流程 严格质检交付</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 精选案例 -->
+  <view class="feature-section">
+    <view class="feature-header">
+      <view class="feature-header-left">
+        <text class="feature-title">精选案例</text>
+        <text class="feature-sub">实拍示意 · 方案以到店勘车为准</text>
+      </view>
+      <view class="feature-more" bindtap="goToCases">
+        <text class="feature-more-text">查看全部</text>
+        <text class="feature-arrow">›</text>
+      </view>
+    </view>
+    <view class="feature-grid">
+      <view class="feature-card" tt:for="{{featureCases}}" tt:key="index" bindtap="onTapFeatureCase" data-case-index="{{item.caseIndex}}">
+        <view class="feature-img-wrapper {{item.imageTheme}}">
+          <image class="feature-img" src="{{item.image}}" mode="aspectFill"></image>
+          <text class="feature-brand">{{item.tag}}</text>
+        </view>
+        <view class="feature-info">
+          <text class="feature-case-title">{{item.title}}</text>
+          <text class="feature-case-sub">{{item.sub}}</text>
+          <view class="feature-price-row">
+            <text class="feature-price">{{item.price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 客户评价（整块卡片） -->
+  <view class="reviews-card">
+    <view class="reviews-card-head">
+      <view class="reviews-card-head-left">
+        <text class="reviews-card-title">客户评价</text>
+        <text class="reviews-card-sub">口碑展示 · 仅供参考</text>
+      </view>
+    </view>
+    <text class="reviews-disclaimer">以下为展示用语，便于了解服务风格；不作为个体承诺，实际以服务体验与双方约定为准。</text>
+    <scroll-view class="reviews-scroll" scroll-x enable-flex>
+      <view class="review-card" tt:for="{{reviews}}" tt:key="*this">
+        <view class="review-header">
+          <text class="review-avatar">{{item.avatar}}</text>
+          <view class="review-user-info">
+            <text class="review-nickname">{{item.nickname}}</text>
+            <text class="review-rating">{{item.stars}}</text>
+          </view>
+        </view>
+        <text class="review-content">{{item.content}}</text>
+        <text class="review-car">{{item.car}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <float-btn />
+
+  <!-- 底部Tab导航 -->
+  <import src="/components/tab-bar/tab-bar" />
+  <template is="tabBar" data="{{ activeIndex: 0 }}" />
+</view>

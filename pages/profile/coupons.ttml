@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">优惠券</text>
+    <text class="page-desc">到店出示即可使用</text>
+  </view>
+
+  <view class="coupon-list">
+    <view class="coupon-card {{item.used ? 'coupon-used' : ''}}" tt:for="{{coupons}}" tt:key="id">
+      <view class="coupon-left">
+        <view class="coupon-value">
+          <text class="coupon-type-label">{{item.displayValue}}</text>
+        </view>
+        <text class="coupon-condition">{{item.condition}}</text>
+      </view>
+      <view class="coupon-divider"></view>
+      <view class="coupon-right">
+        <text class="coupon-title">{{item.title}}</text>
+        <text class="coupon-desc">{{item.desc}}</text>
+        <text class="coupon-expire">有效期至 {{item.expire}}</text>
+        <view class="coupon-btn" bindtap="onUse" data-index="{{index}}" tt:if="{{!item.used}}">
+          <text>立即使用</text>
+        </view>
+        <view class="coupon-btn coupon-used-btn" tt:else>
+          <text>已使用</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

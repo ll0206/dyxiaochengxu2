@@ -1,0 +1,133 @@
+page {
+  background-color: #f7f8fa;
+}
+
+.container {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+.page-header {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%);
+  padding: 40rpx 30rpx 30rpx;
+  text-align: center;
+}
+
+.page-header .page-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #111111;
+  display: block;
+}
+
+.page-header .page-desc {
+  font-size: 24rpx;
+  color: #999999;
+  display: block;
+  margin-top: 8rpx;
+}
+
+.form-card {
+  margin: 24rpx 30rpx;
+}
+
+.form-item {
+  margin-bottom: 32rpx;
+}
+
+.form-label {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #333333;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.form-input {
+  width: 100%;
+  height: 80rpx;
+  background-color: #f5f5f5;
+  border-radius: 12rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+.form-picker {
+  width: 100%;
+  height: 80rpx;
+  background-color: #f5f5f5;
+  border-radius: 12rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.form-picker-text {
+  font-size: 28rpx;
+  color: #cccccc;
+}
+
+.form-picker-selected {
+  color: #333333;
+}
+
+.form-picker-arrow {
+  font-size: 20rpx;
+  color: #999999;
+}
+
+.save-btn {
+  width: 100%;
+  height: 80rpx;
+  background: linear-gradient(135deg, #5c67f5, #7b85f7);
+  color: #ffffff;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  border: none;
+  margin-top: 40rpx;
+}
+
+.save-btn:active {
+  opacity: 0.85;
+}
+
+/* 下拉选择器 */
+.type-picker-dropdown {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 999;
+}
+
+.type-mask {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.type-options {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background-color: #ffffff;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 20rpx 30rpx;
+}
+
+.type-option {
+  padding: 28rpx 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.type-option-text {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.type-active {
+  color: #5c67f5;
+  font-weight: bold;
+}

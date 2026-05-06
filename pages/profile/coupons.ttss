@@ -1,0 +1,128 @@
+page {
+  background-color: #f7f8fa;
+}
+
+.container {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+.page-header {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%);
+  padding: 40rpx 30rpx 30rpx;
+  text-align: center;
+}
+
+.page-header .page-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #111111;
+  display: block;
+}
+
+.page-header .page-desc {
+  font-size: 24rpx;
+  color: #999999;
+  display: block;
+  margin-top: 8rpx;
+}
+
+.coupon-list {
+  padding: 24rpx 30rpx;
+}
+
+.coupon-card {
+  display: flex;
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  border: 2rpx solid #5c67f5;
+}
+
+.coupon-used {
+  border-color: #cccccc;
+  opacity: 0.7;
+}
+
+.coupon-left {
+  width: 180rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24rpx 16rpx;
+  background: linear-gradient(135deg, #5c67f5, #7b85f7);
+}
+
+.coupon-value {
+  margin-bottom: 8rpx;
+}
+
+.coupon-type-label {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.coupon-condition {
+  font-size: 18rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.coupon-divider {
+  width: 2rpx;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 8rpx,
+    rgba(255, 255, 255, 0.3) 8rpx,
+    rgba(255, 255, 255, 0.3) 16rpx
+  );
+}
+
+.coupon-right {
+  flex: 1;
+  padding: 20rpx 24rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.coupon-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333333;
+  display: block;
+  margin-bottom: 6rpx;
+}
+
+.coupon-desc {
+  font-size: 24rpx;
+  color: #666666;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.coupon-expire {
+  font-size: 20rpx;
+  color: #cccccc;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.coupon-btn {
+  align-self: flex-start;
+  padding: 10rpx 30rpx;
+  background-color: #5c67f5;
+  border-radius: 20rpx;
+}
+
+.coupon-btn text {
+  font-size: 22rpx;
+  color: #ffffff;
+}
+
+.coupon-used-btn {
+  background-color: #cccccc;
+}

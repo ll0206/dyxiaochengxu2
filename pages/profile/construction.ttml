@@ -1,0 +1,72 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">施工进度</text>
+    <text class="page-desc">提交预约并开工后，可在此查看节点状态</text>
+  </view>
+
+  <view class="empty-page" tt:if="{{!hasConstruction}}">
+    <view class="empty-illus"></view>
+    <text class="empty-title">暂无进行中的施工单</text>
+    <text class="empty-page-sub">在「联系我们」提交预约后，门店将与您电话确认；确认开工后将在此展示进度。</text>
+    <view class="empty-btns">
+      <view class="btn-gold" bindtap="goContact">
+        <text>去预约留言</text>
+      </view>
+      <view class="btn-line" bindtap="makeCall">
+        <text>电话咨询</text>
+      </view>
+    </view>
+  </view>
+
+  <block tt:if="{{hasConstruction}}">
+    <view class="status-card card">
+      <view class="status-header">
+        <text class="status-icon">{{stages[currentStage].icon}}</text>
+        <view class="status-info">
+          <text class="status-label">{{stages[currentStage].label}}</text>
+          <text class="status-desc">{{stages[currentStage].desc}}</text>
+        </view>
+      </view>
+
+      <view class="progress-bar">
+        <view class="progress-step {{index <= currentStage ? 'progress-done' : ''}}" tt:for="{{stages}}" tt:key="key">
+          <view class="progress-dot"></view>
+          <text class="progress-label">{{item.label}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="info-card card">
+      <view class="info-title">车辆信息</view>
+      <view class="info-row">
+        <text class="info-label">车型</text>
+        <text class="info-value">{{construction.carModel}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">项目</text>
+        <text class="info-value">{{construction.project}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">进店日期</text>
+        <text class="info-value">{{construction.startDate}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">预计完成</text>
+        <text class="info-value">{{construction.expectedDate}}</text>
+      </view>
+    </view>
+
+    <view class="log-card card" tt:if="{{construction.updates && construction.updates.length > 0}}">
+      <view class="info-title">施工日志</view>
+      <view class="log-item" tt:for="{{construction.updates}}" tt:key="time">
+        <view class="log-time">{{item.time}}</view>
+        <view class="log-dot"></view>
+        <view class="log-content">{{item.content}}</view>
+      </view>
+    </view>
+
+    <view class="hint-card card" tt:if="{{!construction.updates || construction.updates.length === 0}}">
+      <text class="hint-text">暂无详细施工动态，工作人员会通过电话与您同步重要节点。</text>
+    </view>
+  </block>
+</view>

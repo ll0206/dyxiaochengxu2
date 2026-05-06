@@ -1,0 +1,73 @@
+<view class="container cases-page">
+  <!-- 页头 + 搜索（顶区卡片） -->
+  <view class="cases-top-card">
+    <text class="cases-top-title">实拍案例</text>
+    <text class="cases-top-desc">真实施工案例 · 所见即所得</text>
+    <view class="cases-search-inner">
+      <text class="search-icon">⌕</text>
+      <input class="search-input" placeholder="搜索车型、年款、关键词，如「迈巴赫」「F18」" value="{{searchKeyword}}" bindinput="onSearchInput" confirm-type="search" />
+      <text class="search-clear" tt:if="{{searchKeyword}}" bindtap="onClearSearch">清除</text>
+    </view>
+  </view>
+
+  <!-- 案例提示 -->
+  <view class="case-tip card">
+    <text class="case-tip-text">以下为客户实车升级案例，所有施工均在车尚友自有工厂完成，品质可见。</text>
+  </view>
+
+  <!-- 品牌筛选 -->
+  <view class="cases-filter-card">
+    <view class="filter-bar">
+      <view class="filter-item {{filterBrand === 'all' ? 'filter-active' : ''}}" bindtap="onFilterBrand" data-brand="all">
+        <text>全部</text>
+      </view>
+      <view class="filter-item {{filterBrand === '宝马' ? 'filter-active' : ''}}" bindtap="onFilterBrand" data-brand="宝马">
+        <text>宝马</text>
+      </view>
+      <view class="filter-item {{filterBrand === '奔驰' ? 'filter-active' : ''}}" bindtap="onFilterBrand" data-brand="奔驰">
+        <text>奔驰</text>
+      </view>
+      <view class="filter-item {{filterBrand === '保时捷' ? 'filter-active' : ''}}" bindtap="onFilterBrand" data-brand="保时捷">
+        <text>保时捷</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="no-result card" tt:if="{{computedCaseList.length === 0}}">
+    <text class="no-result-title">未找到匹配案例</text>
+    <text class="no-result-desc">试试更换筛选条件或缩短关键词；也欢迎电话咨询定制方案。</text>
+  </view>
+
+  <!-- 案例列表 -->
+  <view class="case-card" tt:for="{{computedCaseList}}" tt:key="id" bindtap="onTapCase" data-id="{{item.id}}">
+    <view class="case-badge">
+      <text class="case-badge-text">{{item.brand}}</text>
+    </view>
+    <view class="case-image {{item.imageTheme}}">
+      <image class="case-img" src="{{item.image}}" mode="aspectFill" binderror="onImageError" data-index="{{index}}"></image>
+      <view class="case-img-fallback" tt:if="{{item.showFallback}}">
+        <text class="case-img-label">{{item.carModel}}</text>
+        <text class="case-img-sub">{{item.upgradeTarget}}</text>
+      </view>
+    </view>
+    <view class="case-info">
+      <text class="case-name">{{item.title}}</text>
+      <text class="case-desc">{{item.description}}</text>
+      <view class="case-tags">
+        <view class="case-tag" tt:for="{{item.tags}}" tt:for-item="tag" tt:key="tag">{{tag}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 更多案例提示 -->
+  <view class="more-card card">
+    <text class="more-title">更多实拍案例持续更新中</text>
+    <text class="more-desc">工厂覆盖奔驰/宝马/保时捷全车系升级方案，到店可查看更多实车案例，欢迎预约咨询。</text>
+  </view>
+
+  <float-btn />
+
+  <!-- 底部Tab导航 -->
+  <import src="/components/tab-bar/tab-bar" />
+  <template is="tabBar" data="{{ activeIndex: 1 }}" />
+</view>

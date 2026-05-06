@@ -1,0 +1,15 @@
+{
+    "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "postcss": true,
+        "minified": true,
+        "newFeature": true,
+        "autoCompile": true,
+        "compileHotReLoad": true,
+        "nativeCompile": true
+    },
+    "appid": "tt89caff7717abc0cb01",
+    "projectname": "dyxiaochengxu1",
+    "douyinProjectType": "native"
+}

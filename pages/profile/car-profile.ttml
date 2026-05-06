@@ -1,0 +1,43 @@
+<view class="container">
+  <view class="page-header">
+    <text class="page-title">车辆档案</text>
+    <text class="page-desc">绑定您的车辆信息，方便我们推荐合适的升级方案</text>
+  </view>
+
+  <view class="form-card card">
+    <view class="form-item">
+      <text class="form-label">品牌</text>
+      <view class="form-picker" bindtap="showBrandPicker">
+        <text class="form-picker-text {{form.brand ? 'form-picker-selected' : ''}}">{{form.brand || '请选择品牌'}}</text>
+        <text class="form-picker-arrow">▼</text>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">车系</text>
+      <input class="form-input" placeholder="例如：5系、S级、帕拉梅拉" value="{{form.series}}" bindinput="onInputSeries" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">年款</text>
+      <input class="form-input" placeholder="例如：2020款" value="{{form.year}}" bindinput="onInputYear" />
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">车牌号（选填）</text>
+      <input class="form-input" placeholder="例如：粤A12345" value="{{form.plate}}" bindinput="onInputPlate" />
+    </view>
+
+    <button class="save-btn" bindtap="onSave">保存车辆信息</button>
+  </view>
+
+  <!-- 品牌选择器 -->
+  <view class="type-picker-dropdown" tt:if="{{showBrandPicker}}">
+    <view class="type-mask" bindtap="hideBrandPicker"></view>
+    <view class="type-options">
+      <view class="type-option" tt:for="{{brands}}" tt:key="*this" bindtap="onBrandSelect" data-index="{{index}}">
+        <text class="type-option-text {{brandIndex === index ? 'type-active' : ''}}">{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>

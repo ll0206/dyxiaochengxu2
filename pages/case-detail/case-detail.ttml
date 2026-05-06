@@ -1,0 +1,119 @@
+<view class="container" tt:if="{{caseInfo}}">
+  <!-- 图片展示区 -->
+  <view class="case-image-wrapper">
+    <view class="case-image {{caseInfo.imageTheme}}">
+      <image class="case-img" src="{{caseInfo.image}}" mode="aspectFill" binderror="onImageError"></image>
+      <view class="case-img-fallback" tt:if="{{caseInfo.showFallback}}">
+        <text class="case-img-label">{{caseInfo.carModel}}</text>
+        <text class="case-img-sub">{{caseInfo.upgradeTarget}}</text>
+      </view>
+    </view>
+    <!-- 返回按钮 -->
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">←</text>
+    </view>
+  </view>
+
+  <!-- 品牌标签 -->
+  <view class="brand-tag">
+    <text class="brand-text">{{caseInfo.brand}}</text>
+  </view>
+
+  <!-- 标题 -->
+  <view class="detail-header">
+    <view class="header-row">
+      <text class="detail-title">{{caseInfo.title}}</text>
+      <view class="header-actions">
+        <view class="action-btn {{isFavorited ? 'action-active' : ''}}" bindtap="toggleFavorite">
+          <text class="action-icon">{{isFavorited ? '❤️' : '🤍'}}</text>
+          <text class="action-text">收藏</text>
+        </view>
+        <view class="action-btn {{isLiked ? 'action-active' : ''}}" bindtap="toggleLike">
+          <text class="action-icon">{{isLiked ? '⭐' : '☆'}}</text>
+          <text class="action-text">{{likeCount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 标签 -->
+  <view class="detail-tags">
+    <view class="detail-tag" tt:for="{{caseInfo.tags}}" tt:key="tag">{{item}}</view>
+  </view>
+
+  <!-- 升级方案详情 -->
+  <view class="detail-section">
+    <text class="section-title">升级方案</text>
+    <text class="section-desc">{{caseInfo.description}}</text>
+  </view>
+
+  <!-- 改装前后对比（示意，避免被认定为空白/未完成模块） -->
+  <view class="detail-section">
+    <view class="section-title-row">
+      <text class="section-title">改装效果示意</text>
+      <view class="compare-toggle" bindtap="toggleCompare">
+        <text class="compare-toggle-text">{{showCompare ? '收起' : '展开说明'}}</text>
+      </view>
+    </view>
+    <text class="compare-disclaimer">以下为方案结构示意，非该车实拍前后对比图；更多实拍可在到店沟通时查阅，施工效果以实车与书面约定为准。</text>
+    <view class="compare-container" tt:if="{{showCompare}}">
+      <view class="compare-item">
+        <view class="compare-label before-label">改装前</view>
+        <view class="compare-placeholder">
+          <text class="compare-placeholder-text">原车状态</text>
+        </view>
+      </view>
+      <view class="compare-arrow">↓</view>
+      <view class="compare-item">
+        <view class="compare-label after-label">改装后</view>
+        <view class="compare-placeholder {{caseInfo.imageTheme}}">
+          <text class="compare-placeholder-text">{{caseInfo.carModel}} 升级后效果</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 升级配件清单 -->
+  <view class="detail-section">
+    <text class="section-title">升级配件</text>
+    <view class="parts-list">
+      <view class="part-item" tt:for="{{caseInfo.parts}}" tt:for-item="part" tt:key="part">
+        <text class="part-icon">✓</text>
+        <text class="part-text">{{part}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 安装说明 -->
+  <view class="detail-section">
+    <text class="section-title">安装说明</text>
+    <view class="install-info">
+      <text class="install-text">施工方式：{{caseInfo.installType}}</text>
+      <text class="install-text">旧件处理：{{caseInfo.oldParts}}</text>
+      <text class="install-text">喷漆说明：{{caseInfo.paintInfo}}</text>
+    </view>
+  </view>
+
+  <!-- 底部咨询栏 -->
+  <view class="bottom-bar">
+    <view class="price-info">
+      <text class="price-label">优惠后</text>
+      <text class="price-value">{{caseInfo.price}}</text>
+    </view>
+    <view class="consult-btn" bindtap="makeCall">
+      <text class="consult-icon">📞</text>
+      <text class="consult-text">立即咨询</text>
+    </view>
+    <view class="share-btn" bindtap="onShareTap">
+      <text class="share-icon">↗</text>
+    </view>
+  </view>
+</view>
+
+<!-- 数据加载异常提示 -->
+<view class="container error-container" tt:else>
+  <text class="error-text">案例数据加载异常</text>
+  <view class="error-btn" bindtap="goBack">
+    <text class="error-btn-text">返回</text>
+  </view>
+</view>

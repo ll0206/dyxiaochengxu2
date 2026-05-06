@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/about/about",
+    "pages/business/business",
+    "pages/cases/cases",
+    "pages/case-detail/case-detail",
+    "pages/contact/contact",
+    "pages/profile/profile",
+    "pages/profile/car-profile",
+    "pages/profile/favorites",
+    "pages/profile/history",
+    "pages/profile/construction",
+    "pages/profile/coupons",
+    "pages/profile/appointments",
+    "pages/legal/privacy",
+    "pages/legal/terms"
+  ],
+  "usePrivacyCheck": true,
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "车尚友",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f8fa"
+  }
+}

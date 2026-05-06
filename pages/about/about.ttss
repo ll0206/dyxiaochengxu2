@@ -1,0 +1,265 @@
+.corp-page {
+  min-height: 100vh;
+  padding: 24rpx 24rpx 200rpx;
+  box-sizing: border-box;
+  background-color: #f7f8fa;
+}
+
+.corp-card {
+  background-color: #ffffff;
+  border-radius: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+/* 顶部导航宫格 */
+.corp-nav-card {
+  padding: 36rpx 12rpx 32rpx;
+}
+
+.corp-nav-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.corp-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 0 4rpx;
+}
+
+.corp-nav-item:active {
+  opacity: 0.75;
+}
+
+.corp-nav-icon-wrap {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background-color: rgba(92, 103, 245, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14rpx;
+}
+
+.corp-nav-icon {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #5c67f5;
+}
+
+.corp-nav-label {
+  font-size: 22rpx;
+  color: #333333;
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* 分区行 */
+.corp-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 28rpx;
+  min-height: 96rpx;
+  box-sizing: border-box;
+}
+
+.corp-row:active {
+  background-color: #fafbff;
+}
+
+.corp-row-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.corp-row-more {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.corp-row-more-text {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.corp-row-chev {
+  font-size: 36rpx;
+  color: #cccccc;
+  margin-left: 4rpx;
+  line-height: 1;
+  font-weight: 300;
+}
+
+/* 内容块 */
+.corp-block {
+  padding: 32rpx 28rpx 36rpx;
+}
+
+.corp-block-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+  display: block;
+  margin-bottom: 24rpx;
+}
+
+.corp-block-text {
+  font-size: 28rpx;
+  line-height: 1.85;
+  color: #666666;
+  text-align: justify;
+  display: block;
+}
+
+.corp-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 28rpx;
+  padding-bottom: 28rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.corp-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.corp-stat-num {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #5c67f5;
+  line-height: 1.2;
+}
+
+.corp-stat-unit {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.corp-stat-label {
+  font-size: 22rpx;
+  color: #888888;
+  margin-top: 10rpx;
+}
+
+.corp-line {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 14rpx 0;
+}
+
+.corp-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background-color: #5c67f5;
+  margin-top: 12rpx;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.corp-line-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.65;
+}
+
+.corp-philo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 14rpx 0;
+}
+
+.corp-philo-label {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+  flex-shrink: 0;
+}
+
+.corp-philo-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.65;
+}
+
+/* 新闻 */
+.corp-news-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.corp-news-item:last-child {
+  border-bottom: none;
+}
+
+.corp-news-date {
+  font-size: 22rpx;
+  color: #999999;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.corp-news-title {
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 1.5;
+}
+
+/* 留言反馈 */
+.corp-feedback {
+  padding: 36rpx 28rpx 40rpx;
+}
+
+.corp-feedback-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+  display: block;
+}
+
+.corp-feedback-sub {
+  font-size: 26rpx;
+  color: #999999;
+  display: block;
+  margin-top: 12rpx;
+  margin-bottom: 36rpx;
+  line-height: 1.5;
+}
+
+.corp-btn {
+  width: 100%;
+  background-color: #5c67f5;
+  border-radius: 16rpx;
+  padding: 26rpx 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.corp-btn:active {
+  opacity: 0.9;
+}
+
+.corp-btn-text {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #ffffff;
+}
