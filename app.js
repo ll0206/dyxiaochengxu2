@@ -1,3 +1,5 @@
+const { CASE_DATA } = require('./utils/case-data')
+
 App({
   globalData: {
     /**
@@ -17,5 +19,10 @@ App({
       '奔驰S级等迈巴赫风格升级方案欢迎到店详询，费用以书面报价为准',
       '保时捷帕拉梅拉等改装方案可在「实拍案例」浏览示意，详情电话咨询'
     ]
+  },
+
+  onLaunch() {
+    // 初始化案例数据（服务端不可用时的降级数据）
+    this.globalData.caseList = CASE_DATA
   }
 })

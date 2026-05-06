@@ -12,6 +12,7 @@ const CASE_DATA = [
   {
     id: 1,
     brand: '宝马升级',
+    category: '外观',
     carModel: 'BMW 5 Series F18',
     upgradeTarget: '10-17款升级22款',
     title: '宝马5系 F18 10-17款升级22款运动版（无损款）',
@@ -244,7 +245,7 @@ const CASE_DATA = [
     paintInfo: '含配件局部喷漆',
     price: '¥24,800',
     imageTheme: 'theme-bmw-dark',
-    image: '/images/baomawaiguan/25款X6M版本 4出尾喉-外观侧面-白色2.jpg',
+    image: '/images/baomawaiguan/25款X6M版本 4出尾喉-外观侧面-白色2.jpg',
     showFallback: false
   },
   {
@@ -295,7 +296,7 @@ const CASE_DATA = [
     paintInfo: '含配件局部喷漆',
     price: '¥9,800',
     imageTheme: 'theme-bmw',
-    image: '/images/baomawaiguan/22款GT M5版本-尾灯无损款运动版本外观后面-黑色.jpg',
+    image: '/images/baomawaiguan/22款GT M5版本-尾灯无损款运动版本外观后面-黑色.jpg',
     showFallback: false
   },
   {
@@ -365,7 +366,7 @@ const CASE_DATA = [
     paintInfo: '含配件局部喷漆',
     price: '¥15,800',
     imageTheme: 'theme-benz',
-    image: '/images/benchiwaiguan/20款 S63AMG 版本一比一尾灯切割版-外观正面-黑色.jpg',
+    image: '/images/benchiwaiguan/20款 S63AMG 版本一比一尾灯切割版-外观正面-黑色.jpg',
     showFallback: false
   },
   {
@@ -434,23 +435,6 @@ const CASE_DATA = [
     price: '¥35,000',
     imageTheme: 'theme-benz',
     image: '/images/benchiwaiguan/25款迈巴赫版本-外观尾灯-黑色.jpg',
-    showFallback: false
-  },
-  {
-    id: 26,
-    brand: '奔驰升级',
-    carModel: 'Mercedes GL W164',
-    upgradeTarget: '06-12款升级25款GLS迈巴赫',
-    title: '奔驰GL W164 06-12款升级25款GLS迈巴赫（切割版）',
-    description: '老款GL升级为25款GLS迈巴赫外观，含25款大灯、前叶子板、机盖、25款迈巴赫前杠中网包围、25款尾灯、尾箱盖、尾杠尾喉尾唇。后叶子板切割钣金，外观全面升级为迈巴赫豪华SUV风格。',
-    tags: ['迈巴赫升级', '切割钣金', '25款大灯', 'SUV升级', '豪华风格'],
-    parts: ['25款大灯', '前叶子板', '机盖', '25款迈巴赫前杠中网包围', '25款尾灯', '尾箱盖', '尾杠尾喉尾唇', '后叶子板切割钣金'],
-    installType: '切割钣金',
-    oldParts: '旧件回收',
-    paintInfo: '含配件局部喷漆',
-    price: '¥29,800',
-    imageTheme: 'theme-benz',
-    image: '/images/benchineis/25款一比一马鞍-棕色拼象牙白1.jpg',
     showFallback: false
   },
   {

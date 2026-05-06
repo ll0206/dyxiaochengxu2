@@ -1,0 +1,71 @@
+<view class="review-page">
+  <view class="review-section">
+    <text class="section-title">服务项目</text>
+    <view class="service-picker-trigger" bindtap="showServicePickerFn">
+      <text class="{{form.serviceItem ? 'selected' : 'placeholder'}}">{{form.serviceItem || '请选择服务项目'}}</text>
+    </view>
+  </view>
+
+  <view class="review-section">
+    <text class="section-title">您的车型</text>
+    <input class="review-input" placeholder="例如：宝马5系 F18" value="{{form.carModel}}" bindinput="onInputCarModel" />
+  </view>
+
+  <view class="review-section">
+    <text class="section-title">服务评分</text>
+    <view class="rating-stars">
+      <view class="star {{form.rating >= 1 ? 'active' : ''}}" data-rating="1" bindtap="onTapStar">★</view>
+      <view class="star {{form.rating >= 2 ? 'active' : ''}}" data-rating="2" bindtap="onTapStar">★</view>
+      <view class="star {{form.rating >= 3 ? 'active' : ''}}" data-rating="3" bindtap="onTapStar">★</view>
+      <view class="star {{form.rating >= 4 ? 'active' : ''}}" data-rating="4" bindtap="onTapStar">★</view>
+      <view class="star {{form.rating >= 5 ? 'active' : ''}}" data-rating="5" bindtap="onTapStar">★</view>
+      <text class="rating-text">{{form.rating === 5 ? '非常满意' : form.rating >= 4 ? '满意' : form.rating >= 3 ? '一般' : '不满意'}}</text>
+    </view>
+  </view>
+
+  <view class="review-section">
+    <text class="section-title">评价内容</text>
+    <textarea class="review-textarea" placeholder="分享您的改装体验，帮助我们改进服务…" maxlength="500" value="{{form.content}}" bindinput="onInputContent" />
+    <text class="char-count">{{form.content.length}}/500</text>
+  </view>
+
+  <view class="review-section">
+    <text class="section-title">上传图片（可选）</text>
+    <view class="image-grid">
+      <view class="image-item" wx:for="{{form.images}}" wx:key="*this">
+        <image class="image-preview" src="{{item}}" mode="aspectFill" />
+        <view class="image-remove" data-index="{{index}}" bindtap="onRemoveImage">×</view>
+      </view>
+      <view class="image-add" bindtap="onAddImage" wx:if="{{form.images.length < maxImages}}">
+        <text class="add-icon">+</text>
+        <text class="add-text">添加图片</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="submit-btn" bindtap="onSubmit">
+    <text wx:if="{{loading}}">提交中...</text>
+    <text wx:else>提交评价</text>
+  </view>
+
+  <view class="review-footer">
+    <text class="footer-tip">评价审核通过后将展示在评价列表中</text>
+  </view>
+
+  <!-- 服务项目选择弹窗 -->
+  <view class="picker-mask" wx:if="{{showServicePicker}}" bindtap="hideServicePicker"></view>
+  <view class="picker-popup {{showServicePicker ? 'show' : ''}}">
+    <view class="picker-header">
+      <text class="picker-cancel" bindtap="hideServicePicker">取消</text>
+      <text class="picker-title">选择服务项目</text>
+      <text class="picker-confirm" bindtap="hideServicePicker">确定</text>
+    </view>
+    <scroll-view class="picker-scroll" scroll-y>
+      <view class="picker-option {{serviceIndex === index ? 'selected' : ''}}"
+            wx:for="{{serviceItems}}" wx:key="*this"
+            data-index="{{index}}" bindtap="onServiceSelect">
+        <text>{{item}}</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

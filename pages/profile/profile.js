@@ -2,6 +2,7 @@ const { switchTab } = require('../../utils/util')
 const { getAvailableCouponCount } = require('../../utils/coupons-helper')
 const { PRIVACY_TERMS_AGREED_KEY } = require('../../utils/legal-constants')
 const { callServiceHotline } = require('../../utils/phone-call')
+const api = require('../../utils/api')
 
 const STAGE_LABEL = {
   pending: '待接单',
@@ -33,6 +34,12 @@ Page({
 
   onLoad() {
     tt.setNavigationBarTitle({ title: '个人中心' })
+    // 检查登录状态
+    if (!api.isLoggedIn()) {
+      // 未登录，跳转登录页
+      tt.redirectTo({ url: '/pages/profile/login' })
+      return
+    }
     this.loadUserData()
   },
 
@@ -44,8 +51,6 @@ Page({
 
   loadUserData() {
     const appInst = getApp()
-    const userInfo = tt.getStorageSync('userInfo')
-    const carInfo = tt.getStorageSync('carInfo')
     const appointments = tt.getStorageSync('appointments') || []
     const favorites = tt.getStorageSync('favorites') || []
     const history = tt.getStorageSync('viewHistory') || []
@@ -55,61 +60,76 @@ Page({
       cLabel = STAGE_LABEL[construction.stage] || construction.stage
     }
 
+    var userInfo = tt.getStorageSync('userInfo')
+    var carInfo = tt.getStorageSync('carInfo')
     var letter = '尚'
     if (userInfo && userInfo.nickname) {
       letter = String(userInfo.nickname).charAt(0) || '友'
     }
 
-    this.setData({
-      userInfo,
-      carInfo,
-      appointmentCount: appointments.length,
-      favoriteCount: favorites.length,
-      historyCount: history.length,
-      couponCount: getAvailableCouponCount(),
-      constructionStatus: construction,
-      constructionLabel: cLabel,
-      maskedPhone: maskPhone(appInst.globalData.phone),
-      avatarLetter: letter
-    })
+    // 尝试从服务端获取最新用户资料
+    var self = this
+    if (api.isLoggedIn()) {
+      api.getUserProfile()
+        .then(function (data) {
+          if (data) {
+            userInfo = data
+            tt.setStorageSync('userInfo', data)
+            if (data.nickname) {
+              letter = String(data.nickname).charAt(0) || '友'
+            }
+            if (data.carInfo) {
+              carInfo = data.carInfo
+              tt.setStorageSync('carInfo', data.carInfo)
+            }
+          }
+          self.setData({
+            userInfo: userInfo,
+            carInfo: carInfo,
+            appointmentCount: appointments.length,
+            favoriteCount: favorites.length,
+            historyCount: history.length,
+            couponCount: getAvailableCouponCount(),
+            constructionStatus: construction,
+            constructionLabel: cLabel,
+            maskedPhone: maskPhone(appInst.globalData.phone),
+            avatarLetter: letter
+          })
+        })
+        .catch(function () {
+          // 服务端不可用，使用本地数据
+          self.setData({
+            userInfo: userInfo,
+            carInfo: carInfo,
+            appointmentCount: appointments.length,
+            favoriteCount: favorites.length,
+            historyCount: history.length,
+            couponCount: getAvailableCouponCount(),
+            constructionStatus: construction,
+            constructionLabel: cLabel,
+            maskedPhone: maskPhone(appInst.globalData.phone),
+            avatarLetter: letter
+          })
+        })
+    } else {
+      this.setData({
+        userInfo: userInfo,
+        carInfo: carInfo,
+        appointmentCount: appointments.length,
+        favoriteCount: favorites.length,
+        historyCount: history.length,
+        couponCount: getAvailableCouponCount(),
+        constructionStatus: construction,
+        constructionLabel: cLabel,
+        maskedPhone: maskPhone(appInst.globalData.phone),
+        avatarLetter: letter
+      })
+    }
   },
 
   onLogin() {
-    if (!tt.getStorageSync(PRIVACY_TERMS_AGREED_KEY)) {
-      tt.showModal({
-        title: '用户协议与隐私保护',
-        content: '使用头像、昵称展示前，请先阅读《隐私政策》和《用户服务协议》。点击「同意继续」表示您已阅读并同意。',
-        confirmText: '同意继续',
-        cancelText: '去阅读',
-        success: (res) => {
-          if (res.confirm) {
-            tt.setStorageSync(PRIVACY_TERMS_AGREED_KEY, true)
-            this.fetchUserProfile()
-          } else {
-            tt.navigateTo({ url: '/pages/legal/privacy' })
-          }
-        }
-      })
-      return
-    }
-    this.fetchUserProfile()
-  },
-
-  fetchUserProfile() {
-    tt.getUserInfo({
-      success: (res) => {
-        const userInfo = {
-          nickname: res.userInfo.nickName,
-          avatar: res.userInfo.avatarUrl
-        }
-        tt.setStorageSync('userInfo', userInfo)
-        var letter = userInfo.nickname ? String(userInfo.nickname).charAt(0) : '友'
-        this.setData({ userInfo: userInfo, avatarLetter: letter })
-      },
-      fail: () => {
-        tt.showToast({ title: '登录失败', icon: 'none' })
-      }
-    })
+    // 统一跳转登录页
+    tt.navigateTo({ url: '/pages/profile/login' })
   },
 
   goPrivacy() {
@@ -183,5 +203,25 @@ Page({
   goBusiness(e) {
     const type = e.currentTarget.dataset.type
     tt.navigateTo({ url: '/pages/business/business?type=' + type })
+  },
+
+  goMessages() {
+    tt.navigateTo({ url: '/pages/messages/messages' })
+  },
+
+  goReviews() {
+    tt.navigateTo({ url: '/pages/review/submit-review' })
+  },
+
+  goTeam() {
+    tt.navigateTo({ url: '/pages/team/team' })
+  },
+
+  goWorkshop() {
+    tt.navigateTo({ url: '/pages/workshop/workshop' })
+  },
+
+  goFAQ() {
+    tt.navigateTo({ url: '/pages/faq/faq' })
   }
 })

@@ -1,7 +1,7 @@
 .container {
   min-height: 100vh;
   padding-bottom: 180rpx;
-  background-color: #f7f8fa;
+  background-color: #F8FAFC;
 }
 
 .contact-page {
@@ -11,22 +11,22 @@
 .contact-hero-card {
   margin: 16rpx 24rpx 20rpx;
   padding: 32rpx 24rpx 28rpx;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.92);
   border-radius: 24rpx;
-  border: 1rpx solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
+  border: 1rpx solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 2rpx 12rpx rgba(15, 23, 42, 0.04), 0 8rpx 24rpx rgba(15, 23, 42, 0.06);
 }
 
 .contact-hero-title {
   font-size: 40rpx;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #0F172A;
   display: block;
 }
 
 .contact-hero-desc {
   font-size: 24rpx;
-  color: #999999;
+  color: #94A3B8;
   display: block;
   margin-top: 8rpx;
   margin-bottom: 28rpx;
@@ -40,15 +40,15 @@
 .scope-title {
   font-size: 30rpx;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #0F172A;
   margin-bottom: 16rpx;
   padding-left: 16rpx;
-  border-left: 4rpx solid #5c67f5;
+  border-left: 4rpx solid #1E293B;
 }
 
 .scope-intro {
   font-size: 26rpx;
-  color: #555555;
+  color: #475569;
   line-height: 1.75;
   display: block;
   margin-bottom: 16rpx;
@@ -57,7 +57,7 @@
 .scope-sub {
   font-size: 26rpx;
   font-weight: bold;
-  color: #333333;
+  color: #334155;
   display: block;
   margin-bottom: 12rpx;
 }
@@ -75,7 +75,7 @@
 
 .scope-bullet {
   font-size: 26rpx;
-  color: #5c67f5;
+  color: #1E293B;
   margin-right: 12rpx;
   flex-shrink: 0;
   line-height: 1.6;
@@ -84,17 +84,17 @@
 .scope-item-text {
   flex: 1;
   font-size: 26rpx;
-  color: #666666;
+  color: #64748B;
   line-height: 1.6;
 }
 
 .scope-flow {
   font-size: 24rpx;
-  color: #888888;
+  color: #64748B;
   line-height: 1.7;
   display: block;
   padding: 16rpx;
-  background: rgba(92, 103, 245, 0.08);
+  background: rgba(30, 41, 59, 0.08);
   border-radius: 12rpx;
 }
 
@@ -108,24 +108,24 @@
   flex: 1;
   height: 72rpx;
   border-radius: 36rpx;
-  background: #ffffff;
-  border: 1rpx solid #e8e8e8;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1rpx solid #E2E8F0;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4rpx 12rpx rgba(15, 23, 42, 0.04);
 }
 
 .qa-primary {
-  background: linear-gradient(135deg, #5c67f5, #7b85f7);
+  background: linear-gradient(135deg, #1E293B, #334155);
   border-color: transparent;
-  box-shadow: 0 8rpx 20rpx rgba(92, 103, 245, 0.3);
+  box-shadow: 0 8rpx 20rpx rgba(30, 41, 59, 0.3);
 }
 
 .qa-text {
   font-size: 24rpx;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #0F172A;
 }
 
 .qa-primary .qa-text {
@@ -134,19 +134,19 @@
 
 .qa-text.muted {
   font-weight: 600;
-  color: #666666;
+  color: #64748B;
 }
 
 /* 服务说明 */
 .service-notice {
-  background: linear-gradient(135deg, rgba(92, 103, 245, 0.08), #ffffff);
-  border-color: rgba(92, 103, 245, 0.2);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.08), rgba(255, 255, 255, 0.92));
+  border-color: rgba(30, 41, 59, 0.2);
 }
 
 .notice-title {
   font-size: 30rpx;
   font-weight: bold;
-  color: #5c67f5;
+  color: #1E293B;
   margin-bottom: 16rpx;
   padding-left: 16rpx;
 }
@@ -156,7 +156,7 @@
   display: inline-block;
   width: 4rpx;
   height: 28rpx;
-  background-color: #5c67f5;
+  background-color: #1E293B;
   margin-right: 12rpx;
   vertical-align: middle;
   border-radius: 2rpx;
@@ -164,7 +164,7 @@
 
 .notice-text {
   font-size: 26rpx;
-  color: #888888;
+  color: #64748B;
   line-height: 1.8;
   display: block;
   margin-bottom: 24rpx;
@@ -186,7 +186,7 @@
 .step-num {
   width: 44rpx;
   height: 44rpx;
-  background: linear-gradient(135deg, #5c67f5, #7b85f7);
+  background: linear-gradient(135deg, #1E293B, #334155);
   color: #ffffff;
   border-radius: 50%;
   text-align: center;
@@ -198,13 +198,13 @@
 
 .step-text {
   font-size: 20rpx;
-  color: #888888;
+  color: #64748B;
   white-space: nowrap;
 }
 
 .step-arrow {
   font-size: 24rpx;
-  color: #5c67f5;
+  color: #1E293B;
   margin: 0 4rpx;
   margin-bottom: 24rpx;
 }
@@ -213,7 +213,7 @@
 .info-title {
   font-size: 30rpx;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #0F172A;
   margin-bottom: 20rpx;
   padding-left: 16rpx;
 }
@@ -223,7 +223,7 @@
   display: inline-block;
   width: 4rpx;
   height: 28rpx;
-  background-color: #5c67f5;
+  background-color: #1E293B;
   margin-right: 12rpx;
   vertical-align: middle;
   border-radius: 2rpx;
@@ -235,27 +235,27 @@
 
 .info-label {
   font-size: 24rpx;
-  color: #999999;
+  color: #94A3B8;
   display: block;
   margin-bottom: 8rpx;
 }
 
 .info-value {
   font-size: 28rpx;
-  color: #1a1a1a;
+  color: #0F172A;
   line-height: 1.6;
   display: block;
 }
 
 .phone-number {
-  color: #5c67f5;
+  color: #1E293B;
   font-weight: bold;
   font-size: 32rpx;
 }
 
 .info-divider {
   height: 1rpx;
-  background-color: #eee;
+  background-color: #E2E8F0;
   margin: 8rpx 0;
 }
 
@@ -267,9 +267,9 @@
 .map-placeholder {
   width: 100%;
   height: 280rpx;
-  background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
+  background: linear-gradient(135deg, #E2E8F0 0%, #F1F5F9 100%);
   border-radius: 16rpx;
-  border: 1rpx solid #ddd;
+  border: 1rpx solid #CBD5E1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -285,19 +285,19 @@
 .map-text {
   font-size: 26rpx;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #0F172A;
   margin-bottom: 6rpx;
 }
 
 .map-address {
   font-size: 22rpx;
-  color: #888888;
+  color: #64748B;
 }
 
 .nav-btn {
   width: 100%;
   height: 72rpx;
-  background: linear-gradient(135deg, #5c67f5, #7b85f7);
+  background: linear-gradient(135deg, #1E293B, #334155);
   color: #ffffff;
   border-radius: 36rpx;
   font-size: 28rpx;
@@ -306,7 +306,8 @@
 }
 
 .nav-btn:active {
-  opacity: 0.85;
+  opacity: 0.92;
+  transform: scale(0.98);
 }
 
 /* 在线留言表单 */
@@ -317,13 +318,13 @@
 .form-tip {
   margin-bottom: 24rpx;
   padding: 12rpx 16rpx;
-  background-color: rgba(92, 103, 245, 0.08);
+  background-color: rgba(30, 41, 59, 0.08);
   border-radius: 12rpx;
 }
 
 .form-tip-text {
   font-size: 24rpx;
-  color: #888888;
+  color: #64748B;
 }
 
 .form-item {
@@ -332,7 +333,7 @@
 
 .form-label {
   font-size: 26rpx;
-  color: #1a1a1a;
+  color: #0F172A;
   font-weight: bold;
   display: block;
   margin-bottom: 12rpx;
@@ -341,30 +342,30 @@
 .form-input {
   width: 100%;
   height: 80rpx;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.92);
   border-radius: 16rpx;
   padding: 0 24rpx;
   font-size: 28rpx;
-  color: #1a1a1a;
+  color: #0F172A;
   box-sizing: border-box;
-  border: 1rpx solid #ddd;
+  border: 1rpx solid #E2E8F0;
 }
 
 .form-textarea {
   width: 100%;
   height: 160rpx;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.92);
   border-radius: 16rpx;
   padding: 20rpx 24rpx;
   font-size: 28rpx;
-  color: #1a1a1a;
+  color: #0F172A;
   box-sizing: border-box;
-  border: 1rpx solid #ddd;
+  border: 1rpx solid #E2E8F0;
 }
 
 .form-count {
   font-size: 22rpx;
-  color: #999999;
+  color: #94A3B8;
   text-align: right;
   display: block;
   margin-top: 8rpx;
@@ -373,7 +374,7 @@
 .submit-btn {
   width: 100%;
   height: 80rpx;
-  background: linear-gradient(135deg, #5c67f5, #7b85f7);
+  background: linear-gradient(135deg, #1E293B, #334155);
   color: #ffffff;
   border-radius: 40rpx;
   font-size: 30rpx;
@@ -383,12 +384,13 @@
 }
 
 .submit-btn:active {
-  opacity: 0.85;
+  opacity: 0.92;
+  transform: scale(0.98);
 }
 
 .submit-tip {
   font-size: 22rpx;
-  color: #999999;
+  color: #94A3B8;
   display: block;
   text-align: center;
   margin-top: 16rpx;
@@ -398,14 +400,14 @@
 .legal-footer {
   margin-top: 24rpx;
   padding: 20rpx;
-  background: rgba(92, 103, 245, 0.06);
+  background: rgba(30, 41, 59, 0.06);
   border-radius: 16rpx;
-  border: 1rpx solid rgba(92, 103, 245, 0.12);
+  border: 1rpx solid rgba(30, 41, 59, 0.12);
 }
 
 .legal-footer-block {
   font-size: 22rpx;
-  color: #888888;
+  color: #64748B;
   line-height: 1.65;
   display: block;
 }
@@ -420,13 +422,13 @@
 
 .legal-footer-link {
   font-size: 22rpx;
-  color: #5c67f5;
+  color: #1E293B;
   font-weight: bold;
 }
 
 .legal-footer-gap {
   font-size: 22rpx;
-  color: #cccccc;
+  color: #CBD5E1;
   padding: 0 8rpx;
 }
 
@@ -434,28 +436,28 @@
 .form-picker {
   width: 100%;
   height: 80rpx;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.92);
   border-radius: 16rpx;
   padding: 0 24rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  border: 1rpx solid #ddd;
+  border: 1rpx solid #E2E8F0;
 }
 
 .form-picker-text {
   font-size: 28rpx;
-  color: #999999;
+  color: #94A3B8;
 }
 
 .form-picker-selected {
-  color: #1a1a1a;
+  color: #0F172A;
 }
 
 .form-picker-arrow {
   font-size: 20rpx;
-  color: #999999;
+  color: #94A3B8;
 }
 
 .form-picker-date {
@@ -485,7 +487,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(15, 23, 42, 0.5);
 }
 
 .type-options {
@@ -493,26 +495,26 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.98);
   border-radius: 24rpx 24rpx 0 0;
   padding: 20rpx 30rpx;
   max-height: 60vh;
   overflow-y: auto;
-  border-top: 2rpx solid #5c67f5;
+  border-top: 2rpx solid #1E293B;
 }
 
 .type-option {
   padding: 28rpx 20rpx;
-  border-bottom: 1rpx solid #eee;
+  border-bottom: 1rpx solid #E2E8F0;
 }
 
 .type-option-text {
   font-size: 28rpx;
-  color: #1a1a1a;
+  color: #0F172A;
 }
 
 .type-active {
-  color: #5c67f5;
+  color: #1E293B;
   font-weight: bold;
 }
 
@@ -525,22 +527,22 @@
 
 .time-slot {
   padding: 16rpx 28rpx;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.92);
   border-radius: 12rpx;
-  border: 1rpx solid #ddd;
+  border: 1rpx solid #E2E8F0;
 }
 
 .time-slot text {
   font-size: 26rpx;
-  color: #888888;
+  color: #64748B;
 }
 
 .time-slot-active {
-  background-color: rgba(92, 103, 245, 0.12);
-  border-color: #5c67f5;
+  background-color: rgba(30, 41, 59, 0.12);
+  border-color: #1E293B;
 }
 
 .time-slot-active text {
-  color: #5c67f5;
+  color: #1E293B;
   font-weight: bold;
 }

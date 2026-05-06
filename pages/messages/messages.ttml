@@ -1,0 +1,24 @@
+<view class="msg-page">
+  <scroll-view class="msg-list" scroll-y wx:if="{{!empty}}">
+    <view class="msg-item {{item.read ? 'read' : 'unread'}}"
+          wx:for="{{messages}}" wx:key="id"
+          data-index="{{index}}" bindtap="onTapMessage">
+      <view class="msg-dot" wx:if="{{!item.read}}"></view>
+      <view class="msg-body">
+        <view class="msg-header">
+          <text class="msg-type-badge">{{item.typeLabel}}</text>
+          <text class="msg-time">{{item.timeText}}</text>
+        </view>
+        <text class="msg-title">{{item.title}}</text>
+        <text class="msg-content">{{item.content}}</text>
+      </view>
+      <view class="msg-arrow">›</view>
+    </view>
+  </scroll-view>
+
+  <view class="empty-state" wx:if="{{empty}}">
+    <text class="empty-icon">🔔</text>
+    <text class="empty-text">暂无消息</text>
+    <text class="empty-hint">收到施工、预约等通知时会在此展示</text>
+  </view>
+</view>

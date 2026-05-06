@@ -4,6 +4,7 @@
 const TAB_PAGES = [
   '/pages/index/index',
   '/pages/cases/cases',
+  '/pages/vehicle-gallery/vehicle-gallery',
   '/pages/profile/profile'
 ]
 

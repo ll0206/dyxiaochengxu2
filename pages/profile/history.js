@@ -1,45 +1,77 @@
 const { resolveImageUrl } = require('../../utils/image-url')
+const api = require('../../utils/api')
 
 Page({
   data: {
-    history: []
+    history: [],
+    loading: true,
+    useLocalData: true
   },
 
   onShow() {
-    const raw = tt.getStorageSync('viewHistory') || []
-    const history = raw.map(function (h) {
+    this.refresh()
+  },
+
+  refresh() {
+    var self = this
+    if (api.isLoggedIn()) {
+      api.getHistory(1)
+        .then(function (data) {
+          var list = (data && data.list) || []
+          var history = list.map(function (h) {
+            return Object.assign({}, h, { image: resolveImageUrl(h.coverImage || h.image || '') })
+          })
+          self.setData({ history: history, loading: false, useLocalData: false })
+          tt.setNavigationBarTitle({ title: '浏览历史(' + history.length + ')' })
+        })
+        .catch(function () {
+          self._loadLocal()
+        })
+    } else {
+      this._loadLocal()
+    }
+  },
+
+  _loadLocal() {
+    var raw = tt.getStorageSync('viewHistory') || []
+    var history = raw.map(function (h) {
       return Object.assign({}, h, { image: resolveImageUrl(h.image) })
     })
-    this.setData({ history })
+    this.setData({ history: history, loading: false, useLocalData: true })
     tt.setNavigationBarTitle({ title: '浏览历史(' + history.length + ')' })
   },
 
   onTapCase(e) {
-    const index = e.currentTarget.dataset.index
-    tt.navigateTo({ url: `/pages/case-detail/case-detail?index=${index}` })
+    var index = e.currentTarget.dataset.index
+    var source = this.data.useLocalData ? 'local' : 'server'
+    tt.navigateTo({ url: '/pages/case-detail/case-detail?index=' + index + '&source=' + source })
   },
 
   onImageError(e) {
-    const index = e.currentTarget.dataset.index
-    const key = `history[${index}].showFallback`
+    var index = e.currentTarget.dataset.index
+    var key = 'history[' + index + '].showFallback'
     this.setData({ [key]: true })
   },
 
   formatTime(ts) {
-    const d = new Date(ts)
-    return `${d.getMonth() + 1}-${d.getDate()} ${d.getHours()}:${String(d.getMinutes()).padStart(2, '0')}`
+    var d = new Date(ts)
+    return (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + (d.getMinutes() < 10 ? '0' + d.getMinutes() : '' + d.getMinutes())
   },
 
   onClear() {
+    var self = this
     tt.showModal({
       title: '确认清除',
       content: '确定要清除所有浏览历史吗？',
-      success: (res) => {
-        if (res.confirm) {
-          tt.setStorageSync('viewHistory', [])
-          this.setData({ history: [] })
-          tt.setNavigationBarTitle({ title: '浏览历史(0)' })
+      success: function (res) {
+        if (!res.confirm) return
+        if (api.isLoggedIn()) {
+          api.clearHistory()
+            .catch(function () {})
         }
+        tt.setStorageSync('viewHistory', [])
+        self.setData({ history: [] })
+        tt.setNavigationBarTitle({ title: '浏览历史(0)' })
       }
     })
   }

@@ -1,0 +1,124 @@
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8f9fb 0%, #eef1f6 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 60rpx;
+}
+
+.login-header {
+  margin-top: 160rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-circle {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(26, 115, 232, 0.3);
+}
+
+.logo-text {
+  font-size: 56rpx;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.app-name {
+  margin-top: 24rpx;
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.app-slogan {
+  margin-top: 12rpx;
+  font-size: 28rpx;
+  color: #888;
+}
+
+.login-body {
+  margin-top: 100rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-btn {
+  width: 100%;
+  height: 96rpx;
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  border-radius: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(26, 115, 232, 0.3);
+}
+
+.login-btn:active {
+  opacity: 0.85;
+}
+
+.login-btn text {
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.loading-text {
+  opacity: 0.8;
+}
+
+.agreement-row {
+  margin-top: 32rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-label {
+  margin-right: 8rpx;
+}
+
+.agreement-text {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.agreement-link {
+  font-size: 24rpx;
+  color: #1a73e8;
+  line-height: 1.6;
+}
+
+.error-msg {
+  margin-top: 24rpx;
+  padding: 16rpx 24rpx;
+  background: #fff1f0;
+  border-radius: 8rpx;
+}
+
+.error-msg text {
+  font-size: 24rpx;
+  color: #e53e3e;
+}
+
+.login-footer {
+  position: absolute;
+  bottom: 60rpx;
+}
+
+.footer-text {
+  font-size: 22rpx;
+  color: #bbb;
+}

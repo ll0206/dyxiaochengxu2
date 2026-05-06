@@ -67,7 +67,7 @@
   <!-- 公告 + 数据概览（合并卡片） -->
   <view class="home-metric-card">
     <view class="announcement-bar">
-      <text class="announcement-icon">📢</text>
+      <text class="announcement-icon">●</text>
       <swiper class="announcement-swiper" vertical autoplay circular interval="3000" duration="500">
         <swiper-item tt:for="{{announcements}}" tt:key="*this">
           <text class="announcement-text">{{item}}</text>
@@ -186,20 +186,12 @@
         <text class="reviews-card-sub">口碑展示 · 仅供参考</text>
       </view>
     </view>
-    <text class="reviews-disclaimer">以下为展示用语，便于了解服务风格；不作为个体承诺，实际以服务体验与双方约定为准。</text>
-    <scroll-view class="reviews-scroll" scroll-x enable-flex>
-      <view class="review-card" tt:for="{{reviews}}" tt:key="*this">
-        <view class="review-header">
-          <text class="review-avatar">{{item.avatar}}</text>
-          <view class="review-user-info">
-            <text class="review-nickname">{{item.nickname}}</text>
-            <text class="review-rating">{{item.stars}}</text>
-          </view>
-        </view>
-        <text class="review-content">{{item.content}}</text>
-        <text class="review-car">{{item.car}}</text>
-      </view>
-    </scroll-view>
+    <!-- 暂无评价提示 -->
+    <view class="no-reviews-placeholder">
+      <text class="no-reviews-icon">💬</text>
+      <text class="no-reviews-title">暂无客户评价</text>
+      <text class="no-reviews-desc">期待为您提供优质服务</text>
+    </view>
   </view>
 
   <float-btn />

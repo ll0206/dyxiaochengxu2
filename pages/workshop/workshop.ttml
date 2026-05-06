@@ -1,0 +1,30 @@
+<view class="workshop-page">
+  <view class="workshop-header">
+    <text class="workshop-title">车间环境</text>
+    <text class="workshop-subtitle">11600㎡ 标准化施工车间</text>
+  </view>
+
+  <view class="section-card" wx:for="{{sections}}" wx:key="title">
+    <text class="section-title">{{item.title}}</text>
+    <text class="section-desc">{{item.desc}}</text>
+    <scroll-view class="img-scroll" scroll-x enable-flex>
+      <view class="img-item" wx:for="{{item.images}}" wx:for-item="img" wx:key="path"
+            data-urls="{{item.images}}" data-current="{{img.path}}" bindtap="onTapImage">
+        <view class="img-placeholder" style="background: linear-gradient(135deg, #1E293B, #334155);">
+          <text class="img-label">{{img.label}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="certs-card">
+    <text class="certs-title">资质认证</text>
+    <view class="cert-item" wx:for="{{certs}}" wx:key="title">
+      <text class="cert-icon">📄</text>
+      <view class="cert-info">
+        <text class="cert-name">{{item.title}}</text>
+        <text class="cert-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+</view>

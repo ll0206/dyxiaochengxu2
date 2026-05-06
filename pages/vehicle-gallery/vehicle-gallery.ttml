@@ -1,0 +1,86 @@
+<view class="container gallery-page">
+  <!-- 页面标题 -->
+  <view class="gallery-header">
+    <text class="gallery-title">车型素材图库</text>
+    <text class="gallery-subtitle">全部素材，按车型分组查看 · 共 {{totalImages}} 张</text>
+  </view>
+
+  <!-- 品牌筛选 -->
+  <view class="filter-card">
+    <view class="filter-bar">
+      <view class="filter-item {{filterBrand === 'all' ? 'filter-active' : ''}}" bindtap="onFilterBrand" data-brand="all">
+        <text>全部</text>
+      </view>
+      <view class="filter-item {{filterBrand === 'bmw' ? 'filter-active' : ''}}" bindtap="onFilterBrand" data-brand="bmw">
+        <text>宝马</text>
+      </view>
+      <view class="filter-item {{filterBrand === 'benz' ? 'filter-active' : ''}}" bindtap="onFilterBrand" data-brand="benz">
+        <text>奔驰</text>
+      </view>
+      <view class="filter-item {{filterBrand === 'porsche' ? 'filter-active' : ''}}" bindtap="onFilterBrand" data-brand="porsche">
+        <text>保时捷</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 类型筛选 -->
+  <view class="filter-card">
+    <view class="filter-bar">
+      <view class="filter-item {{filterType === 'all' ? 'filter-active' : ''}}" bindtap="onFilterType" data-type="all">
+        <text>全部</text>
+      </view>
+      <view class="filter-item {{filterType === '外观' ? 'filter-active' : ''}}" bindtap="onFilterType" data-type="外观">
+        <text>外观</text>
+      </view>
+      <view class="filter-item {{filterType === '内饰' ? 'filter-active' : ''}}" bindtap="onFilterType" data-type="内饰">
+        <text>内饰</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 无结果提示 -->
+  <view class="no-result card" tt:if="{{modelGroups.length === 0}}">
+    <text class="no-result-title">未找到匹配分组</text>
+    <text class="no-result-desc">试试更换筛选条件</text>
+  </view>
+
+  <!-- 车型分组列表 -->
+  <view class="model-group" tt:for="{{modelGroups}}" tt:key="modelKey" tt:for-index="groupIndex">
+    <!-- 分组头部 -->
+    <view class="model-header" bindtap="onTapModelGroup" data-group-index="{{groupIndex}}" data-group-key="{{item.modelKey}}">
+      <view class="model-header-left">
+        <text class="model-brand-tag">{{item.brandName}}</text>
+        <text class="model-type-tag" tt:if="{{item.typeName}}">{{item.typeName}}</text>
+        <text class="model-name">{{item.modelName}}</text>
+        <text class="model-count">({{item.images.length}}张)</text>
+      </view>
+      <view class="model-arrow {{expandedGroups[item.modelKey] ? 'arrow-open' : ''}}">
+        <text class="arrow-char">▼</text>
+      </view>
+    </view>
+
+    <!-- 展开后的图片网格 -->
+    <view class="model-images" tt:if="{{expandedGroups[item.modelKey]}}">
+      <view class="image-item" tt:for="{{item.images}}" tt:key="filename" tt:for-index="imgIndex" tt:for-item="img"
+        bindtap="onTapImage"
+        data-current="{{img.resolvedUrl}}"
+        data-urls-str="{{item._urlListStr}}"
+        data-group-index="{{groupIndex}}">
+        <image class="image-thumb"
+          src="{{img.resolvedUrl}}"
+          mode="aspectFill"
+          binderror="onImageError"
+          data-group-index="{{groupIndex}}"
+          data-img-index="{{imgIndex}}"></image>
+        <!-- 加载错误占位 -->
+        <view class="image-thumb-fallback" tt:if="{{imageErrors[groupIndex + '_' + imgIndex]}}">
+          <text class="fallback-text">图片加载失败</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部Tab导航 -->
+  <import src="/components/tab-bar/tab-bar" />
+  <template is="tabBar" data="{{ activeIndex: 2 }}" />
+</view>

@@ -33,6 +33,21 @@
     </view>
   </view>
 
+  <!-- 类型筛选 -->
+  <view class="cases-filter-card">
+    <view class="filter-bar">
+      <view class="filter-item {{filterType === 'all' ? 'filter-active' : ''}}" bindtap="onFilterType" data-type="all">
+        <text>全部</text>
+      </view>
+      <view class="filter-item {{filterType === '外观' ? 'filter-active' : ''}}" bindtap="onFilterType" data-type="外观">
+        <text>外观</text>
+      </view>
+      <view class="filter-item {{filterType === '内饰' ? 'filter-active' : ''}}" bindtap="onFilterType" data-type="内饰">
+        <text>内饰</text>
+      </view>
+    </view>
+  </view>
+
   <view class="no-result card" tt:if="{{computedCaseList.length === 0}}">
     <text class="no-result-title">未找到匹配案例</text>
     <text class="no-result-desc">试试更换筛选条件或缩短关键词；也欢迎电话咨询定制方案。</text>
@@ -42,6 +57,7 @@
   <view class="case-card" tt:for="{{computedCaseList}}" tt:key="id" bindtap="onTapCase" data-id="{{item.id}}">
     <view class="case-badge">
       <text class="case-badge-text">{{item.brand}}</text>
+      <text class="case-badge-type" tt:if="{{item.category}}">{{item.category}}</text>
     </view>
     <view class="case-image {{item.imageTheme}}">
       <image class="case-img" src="{{item.image}}" mode="aspectFill" binderror="onImageError" data-index="{{index}}"></image>

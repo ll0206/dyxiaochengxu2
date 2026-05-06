@@ -50,6 +50,14 @@ Page({
     tt.navigateTo({ url: '/pages/contact/contact' })
   },
 
+  goTeam() {
+    tt.navigateTo({ url: '/pages/team/team' })
+  },
+
+  goWorkshop() {
+    tt.navigateTo({ url: '/pages/workshop/workshop' })
+  },
+
   scrollToIntro() {
     this._pageScrollToSelector('#corp-intro')
   },

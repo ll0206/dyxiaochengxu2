@@ -1,0 +1,36 @@
+<view class="login-page">
+  <view class="login-header">
+    <view class="logo-circle">
+      <text class="logo-text">尚</text>
+    </view>
+    <text class="app-name">车尚友</text>
+    <text class="app-slogan">专业豪车外观升级</text>
+  </view>
+
+  <view class="login-body">
+    <view class="login-btn" bindtap="onLoginTap">
+      <text wx:if="{{loading}}" class="loading-text">登录中...</text>
+      <text wx:else>抖音一键登录</text>
+    </view>
+
+    <view class="agreement-row">
+      <checkbox-group bindchange="onToggleAgree">
+        <label class="checkbox-label">
+          <checkbox checked="{{agreed}}" color="#1a73e8" />
+        </label>
+      </checkbox-group>
+      <text class="agreement-text">我已阅读并同意</text>
+      <text class="agreement-link" bindtap="goPrivacy">《隐私政策》</text>
+      <text class="agreement-text">和</text>
+      <text class="agreement-link" bindtap="goTerms">《用户服务协议》</text>
+    </view>
+
+    <view wx:if="{{errorMsg}}" class="error-msg">
+      <text>{{errorMsg}}</text>
+    </view>
+  </view>
+
+  <view class="login-footer">
+    <text class="footer-text">车尚友（广州）汽车科技有限公司</text>
+  </view>
+</view>

@@ -17,25 +17,25 @@
   <!-- 常用功能宫格 -->
   <view class="profile-quick-card">
     <view class="profile-quick-row">
-      <view class="profile-quick-item" bindtap="goAppointments">
-        <view class="profile-quick-icon"><text class="profile-quick-char">约</text></view>
-        <text class="profile-quick-label">预约</text>
+      <view class="profile-quick-item" bindtap="goMessages">
+        <view class="profile-quick-icon"><text class="profile-quick-char">讯</text></view>
+        <text class="profile-quick-label">消息</text>
       </view>
-      <view class="profile-quick-item" bindtap="goFavorites">
-        <view class="profile-quick-icon"><text class="profile-quick-char">藏</text></view>
-        <text class="profile-quick-label">收藏</text>
-      </view>
-      <view class="profile-quick-item" bindtap="goHistory">
-        <view class="profile-quick-icon"><text class="profile-quick-char">迹</text></view>
-        <text class="profile-quick-label">足迹</text>
-      </view>
-      <view class="profile-quick-item" bindtap="goConstruction">
-        <view class="profile-quick-icon"><text class="profile-quick-char">工</text></view>
-        <text class="profile-quick-label">施工</text>
+      <view class="profile-quick-item" bindtap="goReviews">
+        <view class="profile-quick-icon"><text class="profile-quick-char">评</text></view>
+        <text class="profile-quick-label">评价</text>
       </view>
       <view class="profile-quick-item" bindtap="goCoupons">
         <view class="profile-quick-icon"><text class="profile-quick-char">券</text></view>
         <text class="profile-quick-label">优惠券</text>
+      </view>
+      <view class="profile-quick-item" bindtap="goTeam">
+        <view class="profile-quick-icon"><text class="profile-quick-char">技</text></view>
+        <text class="profile-quick-label">团队</text>
+      </view>
+      <view class="profile-quick-item" bindtap="goFAQ">
+        <view class="profile-quick-icon"><text class="profile-quick-char">问</text></view>
+        <text class="profile-quick-label">FAQ</text>
       </view>
     </view>
   </view>
@@ -90,7 +90,7 @@
   <view class="menu-section">
     <view class="menu-item" bindtap="goCarProfile">
       <view class="menu-left">
-        <text class="menu-icon">🚗</text>
+        <text class="menu-icon">车</text>
         <text class="menu-label">我的车辆</text>
       </view>
       <view class="menu-right">
@@ -101,7 +101,7 @@
 
     <view class="menu-item" bindtap="goAppointments">
       <view class="menu-left">
-        <text class="menu-icon">📅</text>
+        <text class="menu-icon">约</text>
         <text class="menu-label">我的预约</text>
       </view>
       <view class="menu-right">
@@ -112,7 +112,7 @@
 
     <view class="menu-item" bindtap="goFavorites">
       <view class="menu-left">
-        <text class="menu-icon">❤️</text>
+        <text class="menu-icon">藏</text>
         <text class="menu-label">我的收藏</text>
       </view>
       <view class="menu-right">
@@ -123,7 +123,7 @@
 
     <view class="menu-item" bindtap="goHistory">
       <view class="menu-left">
-        <text class="menu-icon">👁️</text>
+        <text class="menu-icon">迹</text>
         <text class="menu-label">浏览历史</text>
       </view>
       <view class="menu-right">
@@ -134,7 +134,7 @@
 
     <view class="menu-item" bindtap="goConstruction">
       <view class="menu-left">
-        <text class="menu-icon">🔧</text>
+        <text class="menu-icon">工</text>
         <text class="menu-label">施工进度</text>
       </view>
       <view class="menu-right">
@@ -145,7 +145,7 @@
 
     <view class="menu-item" bindtap="goCoupons">
       <view class="menu-left">
-        <text class="menu-icon">🎫</text>
+        <text class="menu-icon">券</text>
         <text class="menu-label">优惠券</text>
       </view>
       <view class="menu-right">
@@ -153,16 +153,62 @@
         <text class="menu-arrow">›</text>
       </view>
     </view>
+
+    <view class="menu-item" bindtap="goMessages">
+      <view class="menu-left">
+        <text class="menu-icon">🔔</text>
+        <text class="menu-label">消息中心</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <view class="menu-item" bindtap="goReviews">
+      <view class="menu-left">
+        <text class="menu-icon">评</text>
+        <text class="menu-label">写评价</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-item" bindtap="goTeam">
+      <view class="menu-left">
+        <text class="menu-icon">技</text>
+        <text class="menu-label">技师团队</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <view class="menu-item" bindtap="goWorkshop">
+      <view class="menu-left">
+        <text class="menu-icon">厂</text>
+        <text class="menu-label">车间环境</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <view class="menu-item" bindtap="goFAQ">
+      <view class="menu-left">
+        <text class="menu-icon">问</text>
+        <text class="menu-label">常见问题</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 关于我们入口（合并） -->
+  <view class="menu-section">
     <view class="menu-item" bindtap="goAbout">
       <view class="menu-left">
-        <text class="menu-icon"></text>
+        <text class="menu-icon">信</text>
         <text class="menu-label">关于我们</text>
       </view>
       <text class="menu-arrow">›</text>
     </view>
     <view class="menu-item" bindtap="goContact">
       <view class="menu-left">
-        <text class="menu-icon">📍</text>
+        <text class="menu-icon">址</text>
         <text class="menu-label">联系我们</text>
       </view>
       <text class="menu-arrow">›</text>
@@ -172,21 +218,21 @@
   <view class="menu-section legal-section">
     <view class="menu-item" bindtap="goPrivacy">
       <view class="menu-left">
-        <text class="menu-icon">🔒</text>
+        <text class="menu-icon">锁</text>
         <text class="menu-label">隐私政策</text>
       </view>
       <text class="menu-arrow">›</text>
     </view>
     <view class="menu-item" bindtap="goTerms">
       <view class="menu-left">
-        <text class="menu-icon">📜</text>
+        <text class="menu-icon">约</text>
         <text class="menu-label">用户服务协议</text>
       </view>
       <text class="menu-arrow">›</text>
     </view>
     <view class="menu-item" bindtap="onClearLocalData">
       <view class="menu-left">
-        <text class="menu-icon">🗑️</text>
+        <text class="menu-icon">除</text>
         <text class="menu-label">清除本地数据</text>
       </view>
       <text class="menu-arrow">›</text>
@@ -196,12 +242,12 @@
   <!-- 底部操作 -->
   <view class="bottom-actions">
     <view class="action-btn" bindtap="makeCall">
-      <text class="action-icon">📞</text>
+      <text class="action-icon">☎</text>
       <text class="action-text">电话咨询</text>
     </view>
   </view>
 
   <!-- 底部Tab导航 -->
   <import src="/components/tab-bar/tab-bar" />
-  <template is="tabBar" data="{{ activeIndex: 2 }}" />
+  <template is="tabBar" data="{{ activeIndex: 3 }}" />
 </view>

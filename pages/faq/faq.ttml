@@ -1,0 +1,19 @@
+<view class="faq-page">
+  <view class="faq-header">
+    <text class="faq-title">常见问题</text>
+    <text class="faq-subtitle">关于价格、施工、质保、预约的常见问题</text>
+  </view>
+
+  <view class="faq-section" wx:for="{{faqData}}" wx:key="category">
+    <view class="faq-item" wx:for="{{item.items}}" wx:for-item="qItem" wx:for-index="qIndex" wx:key="q">
+      <view class="faq-question {{expandedMap[item.category + '_' + qIndex] ? 'expanded' : ''}}"
+            data-key="{{item.category + '_' + qIndex}}" bindtap="toggleExpand">
+        <text class="q-text">{{qItem.q}}</text>
+        <text class="q-arrow {{expandedMap[item.category + '_' + qIndex] ? 'up' : ''}}">▼</text>
+      </view>
+      <view class="faq-answer {{expandedMap[item.category + '_' + qIndex] ? 'show' : 'hide'}}">
+        <text>{{qItem.a}}</text>
+      </view>
+    </view>
+  </view>
+</view>

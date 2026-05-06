@@ -1,0 +1,23 @@
+<view class="team-page">
+  <view class="team-header">
+    <text class="team-title">我们的团队</text>
+    <text class="team-subtitle">专业德系车改装技师团队</text>
+  </view>
+
+  <view class="member-card" wx:for="{{team}}" wx:key="name" data-index="{{index}}" bindtap="onTapMember">
+    <view class="member-avatar-wrap">
+      <text class="member-avatar">{{item.avatar}}</text>
+    </view>
+    <view class="member-info">
+      <view class="member-name-row">
+        <text class="member-name">{{item.name}}</text>
+        <text class="member-role">{{item.role}}</text>
+      </view>
+      <text class="member-exp">{{item.experience}}</text>
+      <text class="member-desc">{{item.desc}}</text>
+      <view class="member-tags">
+        <text class="member-tag" wx:for="{{item.brands.split('/')}}" wx:for-item="brand" wx:key="*this">{{brand}}</text>
+      </view>
+    </view>
+  </view>
+</view>

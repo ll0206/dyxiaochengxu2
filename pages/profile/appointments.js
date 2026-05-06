@@ -1,5 +1,6 @@
 const app = getApp()
 const { callServiceHotline } = require('../../utils/phone-call')
+const api = require('../../utils/api')
 
 const STATUS_MAP = {
   pending: { label: '待确认', className: 'status-pending' },
@@ -36,12 +37,26 @@ Page({
   },
 
   refresh() {
+    var self = this
+    if (api.isLoggedIn()) {
+      api.getAppointments(1)
+        .then(function (data) {
+          var list = (data && data.list) || []
+          var decorated = decorate(list)
+          self.setData({ list: decorated, empty: decorated.length === 0 })
+        })
+        .catch(function () {
+          self._loadLocal()
+        })
+    } else {
+      this._loadLocal()
+    }
+  },
+
+  _loadLocal() {
     var raw = tt.getStorageSync('appointments') || []
     var decorated = decorate(raw)
-    this.setData({
-      list: decorated,
-      empty: decorated.length === 0
-    })
+    this.setData({ list: decorated, empty: decorated.length === 0 })
   },
 
   makeCall() {

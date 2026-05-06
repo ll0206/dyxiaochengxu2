@@ -1,6 +1,7 @@
 const app = getApp()
 const { switchTab } = require('../../utils/util')
 const { callServiceHotline } = require('../../utils/phone-call')
+const api = require('../../utils/api')
 
 const SERVICE_TYPES = [
   '老改新外观升级',
@@ -47,6 +48,10 @@ Page({
 
   goTerms() {
     tt.navigateTo({ url: '/pages/legal/terms' })
+  },
+
+  goFAQ() {
+    tt.navigateTo({ url: '/pages/faq/faq' })
   },
 
   copyPhone() {
@@ -129,7 +134,8 @@ Page({
   },
 
   onSubmit() {
-    const { form } = this.data
+    var self = this
+    var form = this.data.form
     if (!form.name) {
       tt.showToast({ title: '请输入姓名', icon: 'none' })
       return
@@ -143,9 +149,7 @@ Page({
       return
     }
 
-    // 保存预约记录到本地存储
-    const appointment = {
-      id: Date.now(),
+    var appointmentData = {
       name: form.name,
       phone: form.phone,
       carModel: form.carModel,
@@ -153,30 +157,72 @@ Page({
       serviceType: form.serviceType,
       appointmentDate: form.appointmentDate,
       timeSlot: form.timeSlot,
-      description: form.description,
+      description: form.description
+    }
+
+    // 优先提交到服务端
+    if (api.isLoggedIn()) {
+      api.createAppointment(appointmentData)
+        .then(function (data) {
+          // 同时保存到本地作为备份
+          var local = tt.getStorageSync('appointments') || []
+          var localEntry = Object.assign({}, appointmentData, {
+            id: Date.now(),
+            status: data.status || 'pending',
+            createTime: Date.now()
+          })
+          local.unshift(localEntry)
+          tt.setStorageSync('appointments', local)
+
+          if (!tt.getStorageSync('construction')) {
+            tt.setStorageSync('construction', {
+              stage: 'pending',
+              carModel: form.carModel || '未填写',
+              project: form.serviceType,
+              startDate: form.appointmentDate || '待定',
+              expectedDate: '待定',
+              updates: [{ time: new Date().toLocaleString(), content: '预约已提交，等待技师接单' }]
+            })
+          }
+          self._showSubmitSuccess(form)
+        })
+        .catch(function () {
+          // 降级为本地保存
+          self._saveLocalAppointment(appointmentData)
+        })
+    } else {
+      this._saveLocalAppointment(appointmentData)
+    }
+  },
+
+  _saveLocalAppointment(appointmentData) {
+    var appointment = Object.assign({}, appointmentData, {
+      id: Date.now(),
       status: 'pending',
       createTime: Date.now()
-    }
-    const appointments = tt.getStorageSync('appointments') || []
+    })
+    var appointments = tt.getStorageSync('appointments') || []
     appointments.unshift(appointment)
     tt.setStorageSync('appointments', appointments)
 
-    // 模拟施工进度数据
     if (!tt.getStorageSync('construction')) {
       tt.setStorageSync('construction', {
         stage: 'pending',
-        carModel: form.carModel || '未填写',
-        project: form.serviceType,
-        startDate: form.appointmentDate || '待定',
+        carModel: appointmentData.carModel || '未填写',
+        project: appointmentData.serviceType,
+        startDate: appointmentData.appointmentDate || '待定',
         expectedDate: '待定',
         updates: [{ time: new Date().toLocaleString(), content: '预约已提交，等待技师接单' }]
       })
     }
+    this._showSubmitSuccess(appointmentData)
+  },
 
-    const content = `姓名：${form.name}\n电话：${form.phone}\n车型：${form.carModel || '未填写'}\n车牌：${form.licensePlate || '未填写'}\n服务类型：${form.serviceType}\n预约日期：${form.appointmentDate || '未选择'}\n时段：${form.timeSlot || '未选择'}\n需求：${form.description || '无'}`
+  _showSubmitSuccess(form) {
+    var content = '姓名：' + form.name + '\n电话：' + form.phone + '\n车型：' + (form.carModel || '未填写') + '\n车牌：' + (form.licensePlate || '未填写') + '\n服务类型：' + form.serviceType + '\n预约日期：' + (form.appointmentDate || '未选择') + '\n时段：' + (form.timeSlot || '未选择') + '\n需求：' + (form.description || '无')
     tt.showModal({
       title: '留言成功',
-      content: `${form.name}，您的预约信息已提交！\n\n${content}\n\n我们会尽快以电话方式与您联系确认。`,
+      content: form.name + '，您的预约信息已提交！\n\n' + content + '\n\n我们会尽快以电话方式与您联系确认。',
       showCancel: false,
       success: () => {
         this.setData({
@@ -188,3 +234,4 @@ Page({
     })
   }
 })
+

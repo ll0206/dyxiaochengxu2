@@ -5,23 +5,23 @@
 .biz-hero-card {
   margin: 16rpx 24rpx 8rpx;
   padding: 36rpx 28rpx 32rpx;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.92);
   border-radius: 24rpx;
-  border: 1rpx solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
+  border: 1rpx solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 2rpx 12rpx rgba(15, 23, 42, 0.04), 0 8rpx 24rpx rgba(15, 23, 42, 0.06);
 }
 
 .biz-hero-title {
   font-size: 40rpx;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #0F172A;
   display: block;
   letter-spacing: 1rpx;
 }
 
 .biz-hero-desc {
   font-size: 26rpx;
-  color: #666666;
+  color: #64748B;
   display: block;
   margin-top: 12rpx;
   line-height: 1.55;
@@ -30,36 +30,36 @@
 .biz-hero-legal {
   margin-top: 24rpx;
   padding: 20rpx;
-  background-color: rgba(92, 103, 245, 0.06);
+  background-color: rgba(30, 41, 59, 0.06);
   border-radius: 16rpx;
 }
 
 .biz-hero-legal-text {
   font-size: 22rpx;
-  color: #888888;
+  color: #64748B;
   line-height: 1.65;
 }
 
 .biz-card {
   margin: 16rpx 24rpx;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.92);
   border-radius: 24rpx;
   overflow: hidden;
-  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
-  border: 1rpx solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2rpx 12rpx rgba(15, 23, 42, 0.04), 0 8rpx 24rpx rgba(15, 23, 42, 0.06);
+  border: 1rpx solid rgba(226, 232, 240, 0.8);
 }
 
 .biz-header {
   display: flex;
   align-items: center;
   padding: 30rpx 30rpx 20rpx;
-  border-bottom: 1rpx solid #f5f5f5;
+  border-bottom: 1rpx solid #E2E8F0;
 }
 
 .biz-num {
   font-size: 40rpx;
   font-weight: bold;
-  color: rgba(92, 103, 245, 0.25);
+  color: rgba(30, 41, 59, 0.25);
   margin-right: 20rpx;
   font-style: italic;
 }
@@ -73,13 +73,13 @@
 .biz-title {
   font-size: 32rpx;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #0F172A;
 }
 
 .biz-tag {
   font-size: 20rpx;
-  color: #5c67f5;
-  background-color: rgba(92, 103, 245, 0.1);
+  color: #1E293B;
+  background-color: rgba(30, 41, 59, 0.1);
   padding: 4rpx 14rpx;
   border-radius: 12rpx;
   margin-left: 16rpx;
@@ -92,7 +92,7 @@
 
 .biz-desc {
   font-size: 26rpx;
-  color: #666666;
+  color: #64748B;
   line-height: 1.7;
   display: block;
   margin-bottom: 20rpx;
@@ -105,10 +105,10 @@
 
 .biz-item-tag {
   font-size: 24rpx;
-  color: #888888;
-  background-color: #f5f5f5;
+  color: #64748B;
+  background-color: #F1F5F9;
   padding: 10rpx 20rpx;
   border-radius: 12rpx;
   margin: 0 12rpx 12rpx 0;
-  border: 1rpx solid #eee;
+  border: 1rpx solid #E2E8F0;
 }

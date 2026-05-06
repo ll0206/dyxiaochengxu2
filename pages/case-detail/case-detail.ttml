@@ -25,11 +25,11 @@
       <text class="detail-title">{{caseInfo.title}}</text>
       <view class="header-actions">
         <view class="action-btn {{isFavorited ? 'action-active' : ''}}" bindtap="toggleFavorite">
-          <text class="action-icon">{{isFavorited ? '❤️' : '🤍'}}</text>
+          <text class="action-icon">{{isFavorited ? '❤' : '♡'}}</text>
           <text class="action-text">收藏</text>
         </view>
         <view class="action-btn {{isLiked ? 'action-active' : ''}}" bindtap="toggleLike">
-          <text class="action-icon">{{isLiked ? '⭐' : '☆'}}</text>
+          <text class="action-icon">{{isLiked ? '★' : '☆'}}</text>
           <text class="action-text">{{likeCount}}</text>
         </view>
       </view>
@@ -45,32 +45,6 @@
   <view class="detail-section">
     <text class="section-title">升级方案</text>
     <text class="section-desc">{{caseInfo.description}}</text>
-  </view>
-
-  <!-- 改装前后对比（示意，避免被认定为空白/未完成模块） -->
-  <view class="detail-section">
-    <view class="section-title-row">
-      <text class="section-title">改装效果示意</text>
-      <view class="compare-toggle" bindtap="toggleCompare">
-        <text class="compare-toggle-text">{{showCompare ? '收起' : '展开说明'}}</text>
-      </view>
-    </view>
-    <text class="compare-disclaimer">以下为方案结构示意，非该车实拍前后对比图；更多实拍可在到店沟通时查阅，施工效果以实车与书面约定为准。</text>
-    <view class="compare-container" tt:if="{{showCompare}}">
-      <view class="compare-item">
-        <view class="compare-label before-label">改装前</view>
-        <view class="compare-placeholder">
-          <text class="compare-placeholder-text">原车状态</text>
-        </view>
-      </view>
-      <view class="compare-arrow">↓</view>
-      <view class="compare-item">
-        <view class="compare-label after-label">改装后</view>
-        <view class="compare-placeholder {{caseInfo.imageTheme}}">
-          <text class="compare-placeholder-text">{{caseInfo.carModel}} 升级后效果</text>
-        </view>
-      </view>
-    </view>
   </view>
 
   <!-- 升级配件清单 -->
@@ -94,6 +68,34 @@
     </view>
   </view>
 
+  <!-- 用户评价 -->
+  <view class="detail-section review-section">
+    <view class="review-section-header">
+      <text class="section-title">用户评价</text>
+      <view class="review-more" bindtap="goWriteReview">
+        <text class="review-more-text">写评价</text>
+        <text class="review-more-arrow">›</text>
+      </view>
+    </view>
+    <view class="review-list" tt:if="{{caseReviews.length > 0}}">
+      <view class="review-item" tt:for="{{caseReviews}}" tt:key="id">
+        <view class="review-item-header">
+          <text class="review-item-avatar">{{item.nicknameIcon}}</text>
+          <view class="review-item-user">
+            <text class="review-item-name">{{item.nickname}}</text>
+            <text class="review-item-stars">{{item.stars}}</text>
+          </view>
+          <text class="review-item-time">{{item.timeText}}</text>
+        </view>
+        <text class="review-item-content">{{item.content}}</text>
+        <text class="review-item-car" tt:if="{{item.carModel}}">{{item.carModel}}</text>
+      </view>
+    </view>
+    <view class="review-empty" tt:else>
+      <text class="review-empty-text">暂无评价，来做第一个评价吧</text>
+    </view>
+  </view>
+
   <!-- 底部咨询栏 -->
   <view class="bottom-bar">
     <view class="price-info">
@@ -101,7 +103,7 @@
       <text class="price-value">{{caseInfo.price}}</text>
     </view>
     <view class="consult-btn" bindtap="makeCall">
-      <text class="consult-icon">📞</text>
+      <text class="consult-icon">☎</text>
       <text class="consult-text">立即咨询</text>
     </view>
     <view class="share-btn" bindtap="onShareTap">
