@@ -2,7 +2,7 @@ FROM public-cn-beijing.cr.volces.com/public/base:maven-3.6.0-jdk-8-slim as build
 
 WORKDIR /opt/application
 COPY backend/local-repo.tar.gz /opt/application/local-repo.tar.gz
-RUN tar xzf --no-same-owner /opt/application/local-repo.tar.gz -C /opt/application/ && rm /opt/application/local-repo.tar.gz
+RUN tar --no-same-owner -xzf /opt/application/local-repo.tar.gz -C /opt/application/ && rm /opt/application/local-repo.tar.gz
 
 COPY backend/ /opt/application/
 
