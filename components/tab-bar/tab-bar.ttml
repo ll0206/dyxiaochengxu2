@@ -14,6 +14,12 @@
     </view>
     <view class="tab-item {{activeIndex===2?'tab-active':''}}" bindtap="switchTab" data-index="2">
       <view class="tab-icon-wrap">
+        <text class="tab-icon-char">图</text>
+      </view>
+      <text class="tab-text">图库</text>
+    </view>
+    <view class="tab-item {{activeIndex===3?'tab-active':''}}" bindtap="switchTab" data-index="3">
+      <view class="tab-icon-wrap">
         <text class="tab-icon-char">我</text>
       </view>
       <text class="tab-text">我的</text>

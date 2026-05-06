@@ -3,7 +3,7 @@
  * 自动带 token、401 自动刷新、错误提示
  */
 
-var BASE_URL = 'https://api.cheshangyou.com' // 开发时可改为 http://localhost:3000
+var BASE_URL = 'https://1m0m5xs1wbkeh-env-fPb3Y4TOOL.service.douyincloud.run' // 抖音云容器服务地址
 
 // 获取 token
 function getToken() {

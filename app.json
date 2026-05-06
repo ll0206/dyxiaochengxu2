@@ -23,6 +23,9 @@
     "pages/legal/privacy",
     "pages/legal/terms"
   ],
+  "usingComponents": {
+    "float-btn": "/components/float-btn/float-btn"
+  },
   "usePrivacyCheck": true,
   "window": {
     "backgroundTextStyle": "dark",

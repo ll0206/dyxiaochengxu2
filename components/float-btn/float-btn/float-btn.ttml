@@ -1,4 +1,0 @@
-<view class="float-btn" bindtap="makeCall">
-  <text class="float-icon">☎</text>
-  <text class="float-text">咨询</text>
-</view>
